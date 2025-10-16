@@ -1,5 +1,12 @@
 html,
 body {
   max-width: 100vw;
+  min-height: 100vh;
+  font-family: var(--font-poppins-sans);
+
+  display: grid;
+}
+
+input {
   font-family: var(--font-poppins-sans);
 }
