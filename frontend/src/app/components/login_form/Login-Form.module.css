@@ -36,7 +36,7 @@
     margin-top: 5px;
 }
 
-.formContainer input[type="submit"] {
+.formContainer button {
     background-color: #1B54FE;
     color: white;
     cursor: pointer;
@@ -52,6 +52,11 @@
     font-weight: 600;
     font-size: 1rem;
     margin-inline: auto;
+}
+
+.formContainer button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
 }
 
 @media (width <= 800px) {

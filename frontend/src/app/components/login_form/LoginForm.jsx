@@ -2,14 +2,18 @@
 
 import styles from "./Login-Form.module.css";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
 
 export default function LoginForm() {
+  const [isLoggingIn, setIsLoggingIn] = useState(false);
+
   const router = useRouter();
 
   async function handleSubmit(e) {
-    e.preventDefault()
+    e.preventDefault();
+    setIsLoggingIn(true);
     await new Promise((res) => setTimeout(res, 700));
-    router.push("/");
+    router.push("/prueba");
   }
 
   return (
@@ -26,7 +30,9 @@ export default function LoginForm() {
               <label htmlFor="password">Contraseña</label>
               <input type="password" name="password" />
             </div>
-            <input type="submit" value="Iniciar sesión" />
+            <button type="submit" disabled={isLoggingIn}>
+              Iniciar sesión
+            </button>
           </div>
         </form>
       </main>
