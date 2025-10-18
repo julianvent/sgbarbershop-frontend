@@ -13,7 +13,7 @@ export default function LoginForm() {
     e.preventDefault();
     setIsLoggingIn(true);
     await new Promise((res) => setTimeout(res, 700));
-    router.push("/prueba");
+    router.push("/dashboard");
   }
 
   return (

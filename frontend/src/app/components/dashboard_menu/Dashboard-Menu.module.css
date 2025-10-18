@@ -1,0 +1,59 @@
+.layout {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    height: 100%;
+}
+
+.sidebar {
+    background-color: #C4C4C4;
+    padding: 1em 3em 1em 2em;
+}
+
+.sidebar>ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar li {
+    margin-bottom: 1em;
+}
+
+.sidebar a {
+    text-decoration: none;
+    color: black;
+}
+
+@media (width < 1000px) {
+    .layout {
+        grid-auto-flow: column;
+        grid-template-rows: auto 1fr;
+        grid-template-columns: auto;
+    }
+
+    .sidebar {
+        max-height: fit-content;
+        padding: 0.2em;
+    }
+
+    .sidebar ul {
+        display: flex;
+        flex-wrap: wrap;
+
+        gap: 2em;
+        padding: 1em;
+
+        max-width: fit-content;
+        margin-inline: auto;
+    }
+
+    .sidebar li {
+        margin: 0;
+    }
+}
+
+@media (width <=450px) {
+    .sidebar li {
+        font-size: 0.9rem;
+    }
+}
