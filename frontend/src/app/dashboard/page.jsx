@@ -10,7 +10,6 @@ export default function Dashboard() {
       <main className="">
         <DashboardMenu></DashboardMenu>
       </main>
-      <Footer></Footer>
     </div>
   );
 }

@@ -8,12 +8,16 @@
     align-items: center;
 }
 
-.button {
-    background-color: blue;
-    color: white;
+.toolbar h1 {
+    font-size: 1.7rem;
+}
+
+.toolbar button {
     max-height: fit-content;
     padding: 0.75em 3em;
     margin-inline: 0;
+
+    font-size: 0.9rem;
 }
 
 @media (width <=1000px) {

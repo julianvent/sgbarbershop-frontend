@@ -6,7 +6,20 @@
 }
 
 .hero {
-    background-color: #F6F6F6;
+    background-image: url("/hero.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 80% center;
+    position: relative;
+    isolation: isolate;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.89));
+    z-index: -1;
+    inset: 0;
 }
 
 .loginContainer {
@@ -15,7 +28,7 @@
     align-items: center;
 }
 
-@media (width <= 800px) {
+@media (width <=800px) {
     .layout {
         grid-auto-flow: row;
         grid-template-columns: auto;

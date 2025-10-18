@@ -14,7 +14,7 @@
 }
 
 .table tbody td {
-    padding: 1em 0;
+    padding: 1em 0.3em 1em;
     font-size: 0.9rem;
 }
 
@@ -34,11 +34,19 @@
 }
 
 @media (width <=580px) {
-    .table tbody td {
+    .table th {
         font-size: 0.8rem;
+    }
+
+    .table tbody td {
+        font-size: 0.7rem;
     }
 
     .hidden {
         display: none;
+    }
+
+    .icon {
+        width: 0.8em;
     }
 }
