@@ -38,11 +38,12 @@
     list-style: none;
     display: none;
     text-align: right;
-    inset: 70% 85%;
+    top: 65px;
+    right: 30px;
 }
 
 .dropdown ul>li {
-    background: #303030;
+    background: #1b1b1b;
     min-width: max-content;
     padding: 1em;
     border-radius: 5px;
@@ -55,6 +56,11 @@
 .dropdown a {
     text-decoration: none;
     color: white;
+}
+
+.dropdown a:hover {
+    text-decoration-line: underline;
+    text-underline-offset: 8px;
 }
 
 @media (width <=500px) {
