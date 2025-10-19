@@ -19,7 +19,7 @@ export default function LoginForm() {
   return (
     <div className={styles.formContainer}>
       <main>
-        <h1>SG Barbershop</h1>
+        <h1>Barbershop</h1>
         <form onSubmit={handleSubmit}>
           <div className={styles.fieldsContainer}>
             <div className={styles.field}>

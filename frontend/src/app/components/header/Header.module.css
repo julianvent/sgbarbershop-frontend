@@ -27,6 +27,7 @@
     list-style: none;
     margin: 0;
     max-width: fit-content;
+    position: relative;
 }
 
 .dropdown>li {
@@ -38,8 +39,7 @@
     list-style: none;
     display: none;
     text-align: right;
-    top: 65px;
-    right: 30px;
+    right: 10%;
 }
 
 .dropdown ul>li {

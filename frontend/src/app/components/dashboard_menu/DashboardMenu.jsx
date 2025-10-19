@@ -1,5 +1,3 @@
-"use client";
-
 import { useState } from "react";
 import Appointment from "../appointment/Appointment";
 import styles from "./Dashboard-Menu.module.css";
