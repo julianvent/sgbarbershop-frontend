@@ -1,6 +1,6 @@
 "use client";
 
-import styles from "./Sign-In-Form.module.css";
+import styles from "./Sign-Form.module.css";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
@@ -11,15 +11,13 @@ import {
 } from "@/app/utils/inputValidators";
 import { signIn } from "../api/signIn";
 
-export default function LoginForm() {
-  const [isLoggingIn, setIsLoggingIn] = useState(false);
-
+export default function SignInForm() {
+  const [isSigningIn, setIsSigningIn] = useState(false);
   const router = useRouter();
-
   const methods = useForm();
 
   const onSubmit = methods.handleSubmit(async (data) => {
-    setIsLoggingIn(true);
+    setIsSigningIn(true);
     await signIn(data);
     router.push("/dashboard");
   });
@@ -36,7 +34,7 @@ export default function LoginForm() {
         <div className={styles.fieldsContainer}>
           <Input {...emailValidation}></Input>
           <Input {...passwordValidation}></Input>
-          <button type="submit" disabled={isLoggingIn}>
+          <button type="submit" disabled={isSigningIn}>
             Iniciar sesión
           </button>
         </div>

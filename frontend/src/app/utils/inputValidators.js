@@ -1,12 +1,10 @@
 export const emailValidation = {
   id: "email",
-  label: "Correo electrónico",
   type: "email",
+  name: "email",
+  label: "Correo electrónico",
   validation: {
-    required: {
-      value: true,
-      message: "Requerido",
-    },
+    required: "Requerido",
     pattern: {
       value: /\S+@\S+\.\S+/,
       message: "Formato de correo inválido",
@@ -16,12 +14,35 @@ export const emailValidation = {
 
 export const passwordValidation = {
   id: "password",
-  label: "Contraseña",
   type: "password",
+  name: "password",
+  label: "Contraseña",
   validation: {
-    required: {
-      value: true,
-      message: "Requerido",
+    required: "Requerido",
+  },
+};
+
+export const nameValidation = {
+  id: "name",
+  type: "text",
+  name: "name",
+  label: "Nombre completo",
+  validation: {
+    required: "Requerido",
+  },
+};
+
+const confirmPasswordValidation = {
+  id: "confirmPassword",
+  type: "password",
+  name: "confirmPassword",
+  label: "Confirmar contraseña",
+  validation: {
+    required: "Requerido",
+    validate: (value) => {
+      if (watch("password") != value) {
+        return "Las contraseñas no coinciden";
+      }
     },
   },
 };

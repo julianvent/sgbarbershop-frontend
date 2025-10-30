@@ -1,7 +1,7 @@
 import { useFormContext } from "react-hook-form";
 import styles from "./Input.module.css";
 
-const Input = ({ label, type, id, placeholder, validation }) => {
+const Input = ({ label, type, id, placeholder, validation, autoComplete }) => {
   const {
     register,
     formState: { errors },
@@ -14,6 +14,7 @@ const Input = ({ label, type, id, placeholder, validation }) => {
         id={id}
         type={type}
         placeholder={placeholder}
+        autoComplete={autoComplete}
         {...register(id, validation)}
       />
       {errors[id] && <span role="alert">{errors[id].message}</span>}

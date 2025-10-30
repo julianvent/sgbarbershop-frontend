@@ -1,17 +1,17 @@
-import LoginForm from "@/app/sign_in/sign_in_form/SignInForm";
+import SignInForm from "./signin_form/SignInForm";
 import styles from "./Sign-In.module.css";
 
-export default function Login() {
+export default function SignIn() {
   return (
     <div className={styles.layout}>
       <div className={styles.hero}></div>
       <div className={styles.formContainer}>
         <main className={styles.main}>
           <h1>Barbershop</h1>
-          <LoginForm></LoginForm>
+          <SignInForm></SignInForm>
           <div className={styles.signUpContainer}>
-            <span>¿No tienes una cuenta?</span>
-            <button>Regístrate</button>
+            <span>o</span>
+            <a href="/signup">regístrate</a>
           </div>
         </main>
       </div>

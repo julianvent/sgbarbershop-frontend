@@ -54,7 +54,9 @@
     text-align: center;
 }
 
-.signUpContainer button {
+.signUpContainer a {
+    text-decoration: none;
+    color: black;
     font-weight: bold;
     background-color: transparent;
     padding: 0.3em;
