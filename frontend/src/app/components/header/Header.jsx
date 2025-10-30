@@ -12,7 +12,7 @@ export default function Header() {
             </figure>
             <ul>
               <li>
-                <a href="/login">Cerrar sesión</a>
+                <a href="/">Cerrar sesión</a>
               </li>
             </ul>
           </li>

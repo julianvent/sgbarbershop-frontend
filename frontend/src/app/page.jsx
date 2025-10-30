@@ -1,6 +1,7 @@
-import styles from "./page.module.css";
-import Login from "./login/page";
+"use client"
+
+import SignIn from "./signin/page";
 
 export default function Home() {
-  return Login();
+  return SignIn();
 }
