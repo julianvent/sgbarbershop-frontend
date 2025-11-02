@@ -1,3 +1,4 @@
+import Link from "next/link";
 import styles from "./Sidebar.module.css";
 
 export default function Sidebar() {
@@ -5,16 +6,16 @@ export default function Sidebar() {
     <div className={styles.sidebar}>
       <ul>
         <li>
-          <a href="./appointments">Citas</a>
+          <Link href="./appointments">Citas</Link>
         </li>
         <li>
-          <a href="./services">Servicios</a>
+          <Link href="./services">Servicios</Link>
         </li>
         <li>
-          <a href="">Paquetes</a>
+          <Link href="">Paquetes</Link>
         </li>
         <li>
-          <a href="">Personal</a>
+          <Link href="">Personal</Link>
         </li>
       </ul>
     </div>

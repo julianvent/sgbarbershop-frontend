@@ -29,7 +29,7 @@
 }
 
 .customerColumn {
-    width: 40%
+    width: 40%;
 }
 
 .table .actionsColumn {
@@ -63,8 +63,6 @@
 .actions li:hover>.actionsMenu {
     display: block;
 }
-
-.actionsMenu>li {}
 
 .actionsMenu a {
     text-decoration: none;
