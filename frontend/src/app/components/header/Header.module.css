@@ -1,4 +1,5 @@
 .header {
+    grid-area: head;
     top: 0;
     z-index: 10000;
     position: sticky;
@@ -8,10 +9,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-
-    padding: 0 2em;
-
-    background-color: #EAECF0;
+    padding: 1em 2em;
+    background-color: rgb(48, 48, 48);
 }
 
 .headerContainer figure {
@@ -21,6 +20,12 @@
 
 .headerContainer img {
     width: 100%;
+    filter: brightness(0) saturate(100%) invert(100%) sepia(96%) saturate(0%) hue-rotate(47deg) brightness(104%) contrast(107%);
+}
+
+.headerContainer h1 {
+    color: white;
+    font-size: 1.5rem;
 }
 
 .dropdown {

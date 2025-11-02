@@ -19,7 +19,7 @@ export default function SignInForm() {
   const onSubmit = methods.handleSubmit(async (data) => {
     setIsSigningIn(true);
     await signIn(data);
-    router.push("/dashboard");
+    router.push("/dashboard/appointments");
   });
 
   return (

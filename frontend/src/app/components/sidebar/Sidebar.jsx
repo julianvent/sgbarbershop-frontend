@@ -1,15 +1,14 @@
+import styles from "./Sidebar.module.css";
+
 export default function Sidebar() {
   return (
-    <div>
+    <div className={styles.sidebar}>
       <ul>
         <li>
-          <a href="">Home</a>
+          <a href="./appointments">Citas</a>
         </li>
         <li>
-          <a href="">Citas</a>
-        </li>
-        <li>
-          <a href="">Servicios</a>
+          <a href="./services">Servicios</a>
         </li>
         <li>
           <a href="">Paquetes</a>
