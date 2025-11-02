@@ -1,0 +1,35 @@
+.sidebar {
+    background-color: #303030;
+    grid-area: nav;
+    height: 100%;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding-block: 1em 3em;
+    padding-inline: 1em 4em;
+    display: grid;
+    gap: 1em;
+}
+
+.sidebar li {
+    padding-block: 0.5em;
+    padding-inline: 0.8em 1.5em;
+    border-radius: 5px;
+}
+
+.sidebar a {
+    text-decoration: none;
+    color: white;
+}
+
+.sidebar li:hover {
+    background-color: #414141;
+    font-weight: bold;
+}
+
+@media (width <= 800px) {
+    .sidebar ul {
+        padding-right: 0.2em;
+    }
+}

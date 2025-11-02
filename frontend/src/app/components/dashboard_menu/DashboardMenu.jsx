@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Appointment from "../appointment/Appointment";
+import Appointment from "@/app/dashboard/appointments/appointment/Appointment";
 import styles from "./Dashboard-Menu.module.css";
 
 export default function DashboardMenu() {

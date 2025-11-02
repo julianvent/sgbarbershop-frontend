@@ -31,18 +31,3 @@ export const nameValidation = {
     required: "Requerido",
   },
 };
-
-const confirmPasswordValidation = {
-  id: "confirmPassword",
-  type: "password",
-  name: "confirmPassword",
-  label: "Confirmar contraseña",
-  validation: {
-    required: "Requerido",
-    validate: (value) => {
-      if (watch("password") != value) {
-        return "Las contraseñas no coinciden";
-      }
-    },
-  },
-};

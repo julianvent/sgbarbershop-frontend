@@ -1,21 +1,21 @@
+import Link from "next/link";
+import styles from "./Sidebar.module.css";
+
 export default function Sidebar() {
   return (
-    <div>
+    <div className={styles.sidebar}>
       <ul>
         <li>
-          <a href="">Home</a>
+          <Link href="./appointments">Citas</Link>
         </li>
         <li>
-          <a href="">Citas</a>
+          <Link href="./services">Servicios</Link>
         </li>
         <li>
-          <a href="">Servicios</a>
+          <Link href="">Paquetes</Link>
         </li>
         <li>
-          <a href="">Paquetes</a>
-        </li>
-        <li>
-          <a href="">Personal</a>
+          <Link href="">Personal</Link>
         </li>
       </ul>
     </div>

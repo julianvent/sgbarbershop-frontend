@@ -19,7 +19,7 @@ const ConfirmPasswordInput = () => {
         {...register(id, {
           required: "Requerido",
           validate: (value) => {
-            if (watch("password") != value) {
+            if (watch("password") !== value) {
               return "Las contraseñas no coinciden";
             }
           },
