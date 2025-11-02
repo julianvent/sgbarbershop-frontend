@@ -24,6 +24,8 @@
 
     font-weight: bold;
     font-size: 0.9rem;
+
+    cursor: pointer;
 }
 
 @media (width <=800px) {

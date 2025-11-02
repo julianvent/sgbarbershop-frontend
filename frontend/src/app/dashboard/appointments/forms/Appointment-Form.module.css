@@ -1,0 +1,28 @@
+.formLayout {
+    display: grid;
+    gap: 2em;
+}
+
+.fieldsContainer {
+    display: grid;
+    gap: 1em;
+    background-color: white;
+    padding: 1em 2em;
+    border-radius: 12px;
+}
+
+.customerFields {
+    display: grid;
+    grid-auto-flow: column;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 5em;
+}
+
+.appointmentFields {
+    display: grid;
+    grid-auto-flow: column;
+
+    gap: 5em;
+}

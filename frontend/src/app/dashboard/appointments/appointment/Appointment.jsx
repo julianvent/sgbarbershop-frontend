@@ -1,6 +1,6 @@
 import styles from "./Appointment.module.css";
 import AppointmentTable from "../appointment_table/AppointmentTable";
-import { useRouter } from 'next/navigation';
+import { useRouter } from "next/navigation";
 
 export default function Appointment() {
   const router = useRouter();
@@ -131,7 +131,12 @@ export default function Appointment() {
     <div className={styles.layout}>
       <div className={styles.toolbar}>
         <h1>Citas programadas</h1>
-        <button className={styles.button} onClick={() => router.push('/dashboard/appointment')}>Programar cita</button>
+        <button
+          className={styles.button}
+          onClick={() => router.push("/dashboard/appointments/new")}
+        >
+          Agendar cita
+        </button>
       </div>
       <div className={styles.tableContainer}>
         <AppointmentTable entries={entries}></AppointmentTable>
