@@ -9,6 +9,7 @@ const Input = ({
   validation,
   autoComplete,
   defaultValue,
+  disabled,
 }) => {
   const {
     register,
@@ -24,6 +25,7 @@ const Input = ({
         placeholder={placeholder}
         autoComplete={autoComplete}
         defaultValue={defaultValue}
+        disabled={disabled}
         {...register(id, validation)}
       />
       {errors[id] && <span role="alert">{errors[id].message}</span>}

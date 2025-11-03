@@ -16,6 +16,10 @@ input {
   font-family: var(--font-poppins-sans);
 }
 
+select {
+  font-family: var(--font-poppins-sans);
+}
+
 button {
   font-family: var(--font-poppins-sans);
   font-size: 1rem;

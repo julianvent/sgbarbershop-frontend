@@ -3,6 +3,10 @@
     gap: 2em;
 }
 
+.formLayout h2 {
+    font-size: 1.25rem;
+}
+
 .fieldsContainer {
     display: grid;
     gap: 1em;
@@ -20,9 +24,18 @@
     gap: 5em;
 }
 
-.appointmentFields {
+.scheduleFields {
     display: grid;
     grid-auto-flow: column;
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 5em;
+}
+
+.servicesFields {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: 1fr 2fr;
 
     gap: 5em;
 }
