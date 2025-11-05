@@ -1,3 +1,18 @@
+
+.layoutContainer {
+    display: grid;
+    grid-template-areas: "head head" "nav main";
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto 1fr;
+    height: 100%;
+}
+
+.mainLayoutContainer {
+    display: grid;
+    grid-area: main;
+    overflow-y: scroll;
+}
+
 .layout {
     display: grid;
     grid-template-rows: auto 1fr auto;

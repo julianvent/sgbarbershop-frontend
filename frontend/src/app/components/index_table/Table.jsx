@@ -1,6 +1,8 @@
 import styles from "./styles.module.css";
+import { useRouter } from "next/navigation";
 
 export default function Table({ entries,fields,actions }) {
+  const router = useRouter();
   return (
     <table className={styles.table}>
       <thead>
@@ -34,7 +36,7 @@ export default function Table({ entries,fields,actions }) {
                             <ul className={styles.actionsMenu}>
                                 {actions.map(action => (
                                     <li key={action.text}>
-                                        <a href={action.base_url + entry.id}>{action.text}</a>
+                                        <a href="#" onClick={() => router.push(action.base_url+entry.id)}>{action.text}</a>
                                     </li>
                                 ))}
                             </ul>
