@@ -113,19 +113,19 @@ export default function AppointmentForm({onSubmit, id }) {
             <div className={styles.fieldsContainer}>
                 <div className={styles.field}>
                   <label htmlFor="client_name">Nombre del Cliente:</label>
-                  <input className={styles.formField} defaultValue={id ? formData.nombre_cliente : ''} 
+                  <input required className={styles.formField} defaultValue={id ? formData.nombre_cliente : ''} 
                   onChange={e => setFormData({ ...formData, nombre_cliente: e.target.value })} type="text" name="client_name"/>
                 </div>
 
                 <div className={styles.field}>
                   <label htmlFor="client_tel">Telefono del cliente:</label>
-                  <input className={styles.formField} defaultValue={id ? formData.numero_telefonico_cliente : ''} 
+                  <input required className={styles.formField} defaultValue={id ? formData.numero_telefonico_cliente : ''} 
                   onChange={e => setFormData({ ...formData, numero_telefonico_cliente: e.target.value })} type="number" inputMode="tel" name="client_tel"/>
                 </div>
 
                 <div className={styles.field}>
                   <label htmlFor="appo_duration">Duracion Aproximada:</label>
-                  <input className={styles.formField} defaultValue={id ? formData.duracion : ''} 
+                  <input required className={styles.formField} defaultValue={id ? formData.duracion : ''} 
                   onChange={e => setFormData({ ...formData, duracion: e.target.value })} type="number" inputMode="numeric" name="appo_duration"/>
                 </div>
 
@@ -157,7 +157,7 @@ export default function AppointmentForm({onSubmit, id }) {
 
                 <div className={styles.field}>
                   <label htmlFor="status">Estado de la cita:</label>
-                  <select className={styles.formField} onChange={e => setFormData({ ...formData, estado: e.target.value })}
+                  <select required className={styles.formField} onChange={e => setFormData({ ...formData, estado: e.target.value })}
                    defaultValue={id ? formData.estado : ''} name="status" id="status">
                         <option value="">Selecciona un valor valido</option>
                         <option value="pendiente">Pendiente </option>
@@ -170,13 +170,13 @@ export default function AppointmentForm({onSubmit, id }) {
 
                 <div className={styles.field}>
                   <label htmlFor="appo-date">Fecha de la cita:</label>
-                  <input defaultValue={id ? formData.fecha : ''} type="date" className={styles.formField} 
+                  <input required defaultValue={id ? formData.fecha : ''} type="date" className={styles.formField} 
                   onChange={e => setFormData({ ...formData, fecha: e.target.value })} name="appo-date"/>
                 </div>
 
                 <div className={styles.field}>
                   <label htmlFor="appo-hour">Hora de la cita:</label>
-                  <input defaultValue={id ? formData.hora : ''} type="time"  className={styles.formField}
+                  <input required defaultValue={id ? formData.hora : ''} type="time"  className={styles.formField}
                   onChange={e => setFormData({ ...formData, hora: e.target.value })} name="appo-hour"/>
                 </div>                
               

@@ -1,5 +1,5 @@
 import styles from "./Appointment.module.css";
-import AppointmentTable from "../appointment_table/AppointmentTable";
+import Table from "@/app/components/index_table/Table";
 import { useRouter } from 'next/navigation';
 
 export default function Appointment() {
@@ -127,6 +127,25 @@ export default function Appointment() {
     },
   ];
 
+  const fields =[
+    {
+      name:'Nombre',
+      field:'customer'
+    },
+    {
+      name:'Estado',
+      field:'status'
+    },
+    {
+      name:'Fecha',
+      field:'date'
+    },
+    {
+      name:'Hora',
+      field:'time'
+    }
+  ];
+
   return (
     <div className={styles.layout}>
       <div className={styles.toolbar}>
@@ -134,7 +153,7 @@ export default function Appointment() {
         <button className={styles.button} onClick={() => router.push('/dashboard/appointment')}>Programar cita</button>
       </div>
       <div className={styles.tableContainer}>
-        <AppointmentTable entries={entries}></AppointmentTable>
+        <Table entries={entries} fields={fields} actions={null}></Table>
       </div>
     </div>
   );
