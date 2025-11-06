@@ -1,0 +1,35 @@
+.card {
+    display: grid;
+    font-size: 0.8rem;
+    gap: 1em;
+}
+
+.photoContainer {
+    aspect-ratio: 4/5;
+    max-width: 10em;
+    overflow: hidden;
+}
+
+.photoContainer img {
+    width: 100%;
+    object-fit: cover;
+}
+
+.radioContainer {
+    display: flex;
+    align-items: center;
+}
+
+.radioContainer label {
+    max-width: 10em;
+}
+
+.radioContainer p {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.radioContainer input {
+    margin-right: 0.5em;
+}

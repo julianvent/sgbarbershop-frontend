@@ -39,3 +39,10 @@
 
     gap: 5em;
 }
+
+.barbers {
+    display: grid;
+    grid-auto-flow: column;
+    gap: 2em;
+    max-width: fit-content;
+}

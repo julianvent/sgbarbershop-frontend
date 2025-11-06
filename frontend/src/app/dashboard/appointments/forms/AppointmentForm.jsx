@@ -4,7 +4,6 @@ import Select from "@/app/components/form/input/Select";
 import styles from "./Appointment-Form.module.css";
 import { FormProvider, useForm } from "react-hook-form";
 import {
-  barberValidation,
   customerNameValidation,
   dateValidation,
   phoneValidation,
@@ -12,14 +11,13 @@ import {
   statusValidation,
 } from "@/app/utils/inputValidators";
 import { useState } from "react";
+import { barbers, status } from "../api/data";
+import BarberCard from "@/app/components/barber_card/BarberCard";
 
 export default function AppointmentForm() {
-  const [isBarberSelected, setIsBarberSelected] = useState(false);
-  const methods = useForm();
+  const [barberSelected, setBarberSelected] = useState(0);
 
-  const onChange = () => {
-    console.log("hola");
-  };
+  const methods = useForm();
 
   return (
     <FormProvider {...methods}>
@@ -33,20 +31,27 @@ export default function AppointmentForm() {
             </div>
           </div>
           <div className={styles.fieldsContainer}>
-            <h2>Datos de la cita</h2>
-            <div className={styles.servicesFields}>
-              <Select {...barberValidation}></Select>
+            <h2>Asignar barbero</h2>
+            <div className={styles.barbers}>
+              {barbers.map((barber) => (
+                <BarberCard
+                  key={barber.id}
+                  barber={barber}
+                  onChange={(e) => setBarberSelected(e.target.value)}
+                ></BarberCard>
+              ))}
             </div>
+          </div>
+          <div className={styles.fieldsContainer}>
+            <h2>Datos de la cita</h2>
             <div className={styles.scheduleFields}>
               <Select
-                disabled={!isBarberSelected}
+                disabled={!barberSelected}
+                options={status}
                 {...statusValidation}
               ></Select>
-              <Input disabled={!isBarberSelected} {...dateValidation}></Input>
-              <Input
-                disabled={!isBarberSelected}
-                {...scheduleValidation}
-              ></Input>
+              <Input disabled={!barberSelected} {...dateValidation}></Input>
+              <Input disabled={!barberSelected} {...scheduleValidation}></Input>
             </div>
           </div>
         </div>

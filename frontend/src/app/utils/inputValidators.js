@@ -81,12 +81,4 @@ export const statusValidation = {
   id: "appointmentStatus",
   name: "appointmentStatus",
   label: "Estado de la cita",
-  options: ["En espera", "Cancelada"],
-};
-
-export const barberValidation = {
-  id: "barber",
-  name: "barber",
-  label: "Barbero",
-  options: ["Kevon", "Adriansin"],
 };

@@ -1,35 +1,27 @@
+"use client";
+
 import { useFormContext } from "react-hook-form";
 import styles from "./Input.module.css";
-import { useState } from "react";
 
-const Select = ({ id, label, options, disabled }) => {
-  const {
-    register,
-    formState: { errors },
-  } = useFormContext();
-
-  const [selectedOption, setSelectedOption] = useState(options[0]);
-
-  console.log(selectedOption);
+const Select = ({ id, label, options, disabled, onChange, selectedValue }) => {
+  const { register } = useFormContext();
 
   return (
     <div className={styles.field}>
       <label htmlFor={id}>{label}</label>
       <select
-        value={selectedOption}
-        // FIX: selected option does not change
-        onChange={(e) => {
-          setSelectedOption(e.target.value);
-        }}
         id={id}
         disabled={disabled}
-        {...register(id)}
+        value={selectedValue}
+        {...register(id, { onChange: onChange })}
       >
-        {options.map((value) => (
-          <option key={value} value={value}>
-            {value}
-          </option>
-        ))}
+        {options.map((value) => {
+          return (
+            <option key={value.id} value={value.id}>
+              {value.name}
+            </option>
+          );
+        })}
       </select>
     </div>
   );

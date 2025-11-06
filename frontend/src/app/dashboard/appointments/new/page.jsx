@@ -1,22 +1,15 @@
 "use client";
 
-import { useRouter } from "next/navigation";
 import AppointmentForm from "../forms/AppointmentForm";
 import Header from "@/app/components/header/Header";
 import styles from "./New-Appointment.module.css";
 import Link from "next/link";
 
-export default function Dashboard() {
-  const router = useRouter();
-  function handleSubmit(formData) {
-    console.log("dik");
-    console.log(formData);
-  }
-
+export default function NewAppointment() {
   return (
-    <>
+    <div className={styles.layout}>
       <Header></Header>
-      <main className={styles.mainContainer}>
+      <main className={styles.scrollableContent}>
         <div className={styles.titleContainer}>
           <Link href={"/dashboard/appointments"}>
             <figure className={styles.return}>
@@ -25,8 +18,10 @@ export default function Dashboard() {
           </Link>
           <h1>Agendar cita</h1>
         </div>
-        <AppointmentForm></AppointmentForm>
+        <div>
+          <AppointmentForm></AppointmentForm>
+        </div>
       </main>
-    </>
+    </div>
   );
 }
