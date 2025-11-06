@@ -12,9 +12,6 @@ export default function Sidebar() {
           <Link href="./services">Servicios</Link>
         </li>
         <li>
-          <Link href="./bundles">Paquetes</Link>
-        </li>
-        <li>
           <Link href="./staff">Personal</Link>
         </li>
       </ul>

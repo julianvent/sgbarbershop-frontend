@@ -1,9 +1,8 @@
 "use client";
-import Header from "@/app/components/header/Header";
-import Sidebar from "@/app/components/sidebar/Sidebar";
 import styles from "@/app/dashboard/styles.module.css";
 import Table from "@/app/components/index_table/Table";
 import { useRouter } from "next/navigation";
+import Layout from "@/app/components/base_layout/Layout";
 
 
 export default function Services() {
@@ -74,22 +73,41 @@ export default function Services() {
     "tipo": "Combo"
   }
 ];
+
+
+const fields = [
+    {
+      header: 'Nombre', 
+      name: 'nombre'
+    },
+    {
+      header: 'Precio', 
+      name:'precio' 
+    },
+    {
+      header: 'Duracion Aproximada',
+      name:'duracion'
+    },
+    {
+      header: 'Tipo',
+      name:'tipo'
+    }
+  
+];
   return (
-    <div className={styles.layoutContainer}>
-      <Header></Header>
-      <Sidebar></Sidebar>
-      <main className={styles.mainLayoutContainer}>
-            <div className={styles.layout}>
-              <div className={styles.toolbar}>
-                <h1>Servicios Disponibles</h1>
-                <button className={styles.button} onClick={() => router.push('/dashboard/appointment')}>Programar cita</button>
-              </div>
-              <div className={styles.tableContainer}>
-                <Table entries={entries} fields={[{name: 'Nombre', field: 'nombre'},{name: 'Precio', field:'precio' }]}></Table>
-              </div>
-            </div>
-          
-      </main>
-    </div>
+    <Layout>
+      <div className={styles.layout}>
+        <div className={styles.toolbar}>
+          <h1>Servicios Disponibles</h1>      
+          <div className={styles.buttonContainer}>
+            <button onClick={() => router.push('/dashboard/service')}>Crear servicio</button>
+            <button onClick={() => router.push('/dashboard/appointment')}>Crear Paquete</button>  
+          </div>  
+        </div>
+        <div className={styles.tableContainer}>
+          <Table entries={entries} fields={fields}></Table>
+        </div>
+      </div>
+    </Layout>
   );
 }

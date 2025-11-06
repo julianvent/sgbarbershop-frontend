@@ -1,13 +1,9 @@
 "use client";
 
-import Header from "../components/header/Header";
-import styles from "./Dashboard.module.css";
-import Sidebar from "../components/sidebar/Sidebar";
+import Layout from "../components/base_layout/Layout";
 
 export default function Dashboard() {
   return (
-    <div className={styles.layout}>
-
-    </div>
+    <Layout></Layout>
   );
 }

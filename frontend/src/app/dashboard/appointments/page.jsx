@@ -133,20 +133,20 @@ export default function Appointments() {
 
   const fields =[
     {
-      name:'Nombre',
-      field:'customer'
+      header:'Nombre',
+      name:'customer'
     },
     {
-      name:'Estado',
-      field:'status'
+      header:'Estado',
+      name:'status'
     },
     {
-      name:'Fecha',
-      field:'date'
+      header:'Fecha',
+      name:'date'
     },
     {
-      name:'Hora',
-      field:'time'
+      header:'Hora',
+      name:'time'
     }
   ];
 

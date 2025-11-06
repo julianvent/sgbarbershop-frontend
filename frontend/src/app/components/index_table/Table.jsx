@@ -9,7 +9,7 @@ export default function Table({ entries,fields,actions }) {
         <tr>
           {
             fields.map( (e) => (
-                <th key={e.field} scope="col">{e.name}</th>
+                <th key={e.name} scope="col">{e.header}</th>
             ))
            }
           <th scope="col" className={styles.actionsColumn}></th>
@@ -19,7 +19,7 @@ export default function Table({ entries,fields,actions }) {
         {entries.map((entry) => (
           <tr key={entry.id}>
                 {fields.map( field => (
-                    <td key={field.field}>{entry[field.field]}</td>
+                    <td key={field.name}>{entry[field.name]}</td>
                 ))}
 
                 {(actions != null) ? 
