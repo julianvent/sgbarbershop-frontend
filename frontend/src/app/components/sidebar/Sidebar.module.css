@@ -1,5 +1,5 @@
 .sidebar {
-    background-color: #303030;
+    background-color: rgb(34, 34, 34);
     grid-area: nav;
     height: 100%;
 }
@@ -28,7 +28,7 @@
     font-weight: bold;
 }
 
-@media (width <= 800px) {
+@media (width <=800px) {
     .sidebar ul {
         padding-right: 0.2em;
     }

@@ -1,21 +1,6 @@
-
-.layoutContainer {
-    display: grid;
-    grid-template-areas: "head head" "nav main";
-    grid-template-columns: auto 1fr;
-    grid-template-rows: auto 1fr;
-    height: 100%;
-}
-
-.mainLayoutContainer {
-    display: grid;
-    grid-area: main;
-    overflow-y: scroll;
-}
-
 .layout {
     display: grid;
-    grid-template-rows: auto 1fr auto;
+    grid-template-rows: auto 1fr;
     gap: 1em;
     padding: 1em 3em;
     height: 100%;
@@ -48,6 +33,8 @@
 
     font-weight: bold;
     font-size: 0.9rem;
+
+    cursor: pointer;
 }
 
 @media (width <=800px) {

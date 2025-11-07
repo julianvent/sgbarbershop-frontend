@@ -1,0 +1,48 @@
+.formLayout {
+    display: grid;
+    gap: 2em;
+}
+
+.formLayout h2 {
+    font-size: 1.25rem;
+}
+
+.fieldsContainer {
+    display: grid;
+    gap: 1em;
+    background-color: white;
+    padding: 1em 2em;
+    border-radius: 12px;
+}
+
+.customerFields {
+    display: grid;
+    grid-auto-flow: column;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 5em;
+}
+
+.scheduleFields {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 5em;
+}
+
+.servicesFields {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: 1fr 2fr;
+
+    gap: 5em;
+}
+
+.barbers {
+    display: grid;
+    grid-auto-flow: column;
+    gap: 2em;
+    max-width: fit-content;
+}
