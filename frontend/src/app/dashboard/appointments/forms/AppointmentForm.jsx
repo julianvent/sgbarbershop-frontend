@@ -15,7 +15,8 @@ import { barbers, status } from "../api/data";
 import BarberCard from "@/app/components/barber_card/BarberCard";
 
 export default function AppointmentForm() {
-  const [barberSelected, setBarberSelected] = useState(0);
+  const [barberSelected, setBarberSelected] = useState(null);
+  const [selectedStatus, setSelectedStatus] = useState(null);
 
   const methods = useForm();
 
@@ -49,6 +50,7 @@ export default function AppointmentForm() {
                 disabled={!barberSelected}
                 options={status}
                 {...statusValidation}
+                onChange={(e) => setSelectedStatus(e.target.value)}
               ></Select>
               <Input disabled={!barberSelected} {...dateValidation}></Input>
               <Input disabled={!barberSelected} {...scheduleValidation}></Input>

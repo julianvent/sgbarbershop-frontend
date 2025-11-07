@@ -1,9 +1,7 @@
 "use client";
-import Header from "@/app/components/header/Header";
-import Sidebar from "@/app/components/sidebar/Sidebar";
-import styles from "@/app/dashboard/styles.module.css";
+import styles from "../Main.module.css";
 import Table from "@/app/components/index_table/Table";
-import { useRouter } from 'next/navigation';
+import { useRouter } from "next/navigation";
 import Layout from "@/app/components/base_layout/Layout";
 
 export default function Appointments() {
@@ -131,43 +129,48 @@ export default function Appointments() {
     },
   ];
 
-  const fields =[
+  const fields = [
     {
-      header:'Nombre',
-      name:'customer'
+      header: "Nombre",
+      name: "customer",
     },
     {
-      header:'Estado',
-      name:'status'
+      header: "Estado",
+      name: "status",
     },
     {
-      header:'Fecha',
-      name:'date'
+      header: "Fecha",
+      name: "date",
     },
     {
-      header:'Hora',
-      name:'time'
-    }
+      header: "Hora",
+      name: "time",
+    },
   ];
 
   const actions = [
     {
-      text: 'Editar',
-      base_url: '/appointments/'
-    }
+      text: "Editar",
+      base_url: "/appointments/",
+    },
   ];
 
   return (
     <Layout>
       <div className={styles.layout}>
-          <div className={styles.toolbar}>
-            <h1>Citas programadas</h1>
-            <button className={styles.button} onClick={() => router.push('/dashboard/appointment')}>Programar cita</button>
-          </div>
-          <div className={styles.tableContainer}>
-            <Table entries={entries} fields={fields} actions={actions}></Table>
-          </div>
+        <div className={styles.toolbar}>
+          <h1>Citas programadas</h1>
+          <button
+            className={styles.button}
+            onClick={() => router.push("/dashboard/appointments/new")}
+          >
+            Programar cita
+          </button>
         </div>
+        <div className={styles.tableContainer}>
+          <Table entries={entries} fields={fields} actions={actions}></Table>
+        </div>
+      </div>
     </Layout>
   );
 }

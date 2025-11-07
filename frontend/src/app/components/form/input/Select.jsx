@@ -3,7 +3,7 @@
 import { useFormContext } from "react-hook-form";
 import styles from "./Input.module.css";
 
-const Select = ({ id, label, options, disabled, onChange, selectedValue }) => {
+const Select = ({ id, label, options, disabled, onChange }) => {
   const { register } = useFormContext();
 
   return (
@@ -12,9 +12,11 @@ const Select = ({ id, label, options, disabled, onChange, selectedValue }) => {
       <select
         id={id}
         disabled={disabled}
-        value={selectedValue}
         {...register(id, { onChange: onChange })}
       >
+        <option value="" disabled>
+          Seleccionar...
+        </option>
         {options.map((value) => {
           return (
             <option key={value.id} value={value.id}>
