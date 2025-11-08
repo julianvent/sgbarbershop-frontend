@@ -10,6 +10,7 @@ import {
   passwordValidation,
 } from "@/app/utils/inputValidators";
 import { signIn } from "../api/signIn";
+import { appointmentsRoute } from "@/app/utils/routes";
 
 export default function SignInForm() {
   const [isSigningIn, setIsSigningIn] = useState(false);
@@ -19,7 +20,7 @@ export default function SignInForm() {
   const onSubmit = methods.handleSubmit(async (data) => {
     setIsSigningIn(true);
     await signIn(data);
-    router.push("/dashboard/appointments");
+    router.push(appointmentsRoute);
   });
 
   return (

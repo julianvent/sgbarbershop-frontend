@@ -12,7 +12,6 @@
     font-weight: 600;
     margin-inline: auto;
     width: 100%;
-    cursor: pointer;
 }
 
 .fieldsContainer button:disabled {

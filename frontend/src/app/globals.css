@@ -24,6 +24,7 @@ button {
   font-family: var(--font-poppins-sans);
   font-size: 1rem;
   border: none;
+  cursor: pointer;
 }
 
 button:hover {

@@ -12,6 +12,7 @@ const Select = ({ id, label, options, disabled, onChange }) => {
       <select
         id={id}
         disabled={disabled}
+        defaultValue={""}
         {...register(id, { onChange: onChange })}
       >
         <option value="" disabled>

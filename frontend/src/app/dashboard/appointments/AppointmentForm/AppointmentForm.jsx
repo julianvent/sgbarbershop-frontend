@@ -11,8 +11,8 @@ import {
   statusValidation,
 } from "@/app/utils/inputValidators";
 import { useState } from "react";
-import { barbers, status } from "../api/data";
-import BarberCard from "@/app/components/barber_card/BarberCard";
+import { barbers, status } from "../../../utils/data";
+import BarberCard from "@/app/components/form/radio/BarberCard";
 
 export default function AppointmentForm() {
   const [barberSelected, setBarberSelected] = useState(null);
