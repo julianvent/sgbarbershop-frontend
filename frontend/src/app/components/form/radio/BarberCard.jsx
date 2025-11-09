@@ -15,7 +15,7 @@ export default function BarberCard({ barber, onChange }) {
           value={barber.id}
           {...register(barberValidation.id, { onChange: onChange })}
         />
-        <label htmlFor={barberValidation.id}>
+        <label>
           <p>{barber.name}</p>
         </label>
       </div>

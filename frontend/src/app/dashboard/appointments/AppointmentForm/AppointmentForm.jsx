@@ -27,8 +27,6 @@ import ServiceCheckbox from "@/app/components/form/checkbox/ServiceCheckbox";
 
 export default function AppointmentForm() {
   const [selectedBarber, setSelectedBarber] = useState(null);
-  const [selectedStatus, setSelectedStatus] = useState(null);
-  const [selectedTime, setSelectedTime] = useState(null);
 
   const router = useRouter();
 
@@ -97,11 +95,7 @@ export default function AppointmentForm() {
                 <span className={styles.fieldsTitle}>Hora de la cita</span>
                 <div className={styles.times}>
                   {timesAvailable.map((time) => (
-                    <TimeRadio
-                      key={time.id}
-                      time={time}
-                      onChange={(e) => setSelectedTime(e.target.value)}
-                    ></TimeRadio>
+                    <TimeRadio key={time.id} time={time}></TimeRadio>
                   ))}
                 </div>
                 {errors[timeValidation.id] && (
@@ -118,7 +112,6 @@ export default function AppointmentForm() {
                     <ServiceCheckbox
                       key={service.id}
                       service={service}
-                      onChange={(e) => console.log("hola")}
                     ></ServiceCheckbox>
                   ))}
                 </div>

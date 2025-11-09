@@ -12,9 +12,7 @@ export default function TimeRadio({ time, onChange }) {
         value={`${time.hour}:${time.minutes}`}
         {...register(timeValidation.id, { onChange: onChange })}
       />
-      <label htmlFor="timeSelected">
-        {`${time.hour}:${time.minutes}`}
-      </label>
+      <label>{`${time.hour}:${time.minutes}`}</label>
     </div>
   );
 }

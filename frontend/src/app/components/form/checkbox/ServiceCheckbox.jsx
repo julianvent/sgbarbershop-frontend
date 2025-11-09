@@ -9,10 +9,9 @@ export default function ServiceCheckbox({ service, onChange }) {
       <input
         type="checkbox"
         value={service.id}
-        id={serviceValidation.id}
         {...register(serviceValidation.id, { onChange: onChange })}
       />
-      <label htmlFor={serviceValidation.id}>{service.name}</label>
+      <label>{service.name}</label>
     </div>
   );
 }
