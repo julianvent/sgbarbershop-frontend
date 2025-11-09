@@ -12,15 +12,11 @@ const Select = ({ id, label, options, disabled, onChange }) => {
       <select
         id={id}
         disabled={disabled}
-        defaultValue={""}
         {...register(id, { onChange: onChange })}
       >
-        <option value="" disabled>
-          Seleccionar...
-        </option>
         {options.map((value) => {
           return (
-            <option key={value.id} value={value.id}>
+            <option key={value.id} value={value.value}>
               {value.name}
             </option>
           );

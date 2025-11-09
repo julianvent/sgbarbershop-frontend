@@ -49,10 +49,10 @@ export const phoneValidation = {
   label: "Número telefónico",
   validation: {
     required: "Requerido",
-    // pattern: {
-    //   value: /a/,
-    //   message: "Formato de correo inválido",
-    // },
+    pattern: {
+      value: /^\d{10}$/,
+      message: "Teléfono incorrecto",
+    },
   },
 };
 
@@ -66,19 +66,32 @@ export const dateValidation = {
   },
 };
 
-export const scheduleValidation = {
-  id: "appointmentSchedule",
-  type: "time",
-  name: "appointmentSchedule",
-  label: "Hora de la cita",
-  defaultValue: "12:00",
+export const statusValidation = {
+  id: "appointmentStatus",
+  name: "appointmentStatus",
+  label: "Estado de la cita",
   validation: {
     required: "Requerido",
   },
 };
 
-export const statusValidation = {
-  id: "appointmentStatus",
-  name: "appointmentStatus",
-  label: "Estado de la cita",
+export const barberValidation = {
+  id: "selectedBarber",
+  validation: {
+    required: "Selecciona un barbero",
+  },
+};
+
+export const timeValidation = {
+  id: "selectedTime",
+  validation: {
+    required: "Selecciona un horario",
+  },
+};
+
+export const serviceValidation = {
+  id: "selectedService",
+  validation: {
+    required: "Selecciona uno o más servicios",
+  },
 };
