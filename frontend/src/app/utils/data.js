@@ -1,16 +1,16 @@
 // USE THIS FILE FOR FETCHING DATA FROM API
 
 export const barbers = [
-  { id: 1, name: "Kevin Frias Garcia", photo: "/kevin.png" },
+  { id: 1, name: "Kevin Frias Garcia", photo: "/kevin2.png" },
   { id: 2, name: "Adrian Herrera Jeronimo", photo: "/kevin.png" },
   { id: 3, name: "Jose Julian Ventura Uscanga", photo: "/kevin.png" },
 ];
 
 export const status = [
-  { id: 1, name: "Pendiente por confirmar" },
-  { id: 2, name: "Confirmada" },
-  { id: 3, name: "Cancelada" },
-  { id: 4, name: "Finalizada" },
+  { id: 1, name: "Pendiente por confirmar", value: "pending" },
+  { id: 2, name: "Confirmada", value: "confirmed" },
+  { id: 3, name: "Cancelada", value: "cancelled" },
+  { id: 4, name: "Finalizada", value: "completed" },
 ];
 
 export const appointments = [
@@ -156,4 +156,16 @@ export const serviceFields = [
     header: "Tipo",
     name: "tipo",
   },
+];
+
+export const timesAvailable = [
+  { id: 1, hour: "10", minutes: "00" },
+  { id: 2, hour: "10", minutes: "15" },
+  { id: 3, hour: "10", minutes: "30" },
+  { id: 4, hour: "10", minutes: "45" },
+  { id: 5, hour: "11", minutes: "00" },
+  { id: 6, hour: "11", minutes: "15" },
+  { id: 7, hour: "11", minutes: "30" },
+  { id: 8, hour: "11", minutes: "45" },
+  { id: 9, hour: "12", minutes: "00" },
 ];

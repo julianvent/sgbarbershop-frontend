@@ -11,12 +11,14 @@ import {
   statusValidation,
 } from "@/app/utils/inputValidators";
 import { useState } from "react";
-import { barbers, status } from "../../../utils/data";
+import { barbers, status, timesAvailable } from "../../../utils/data";
 import BarberCard from "@/app/components/form/radio/BarberCard";
+import TimeRadio from "@/app/components/form/radio/TimeRadio";
 
 export default function AppointmentForm() {
-  const [barberSelected, setBarberSelected] = useState(null);
+  const [selectedBarber, setSelectedBarber] = useState(null);
   const [selectedStatus, setSelectedStatus] = useState(null);
+  const [selectedTime, setSelectedTime] = useState(null);
 
   const methods = useForm();
 
@@ -38,23 +40,36 @@ export default function AppointmentForm() {
                 <BarberCard
                   key={barber.id}
                   barber={barber}
-                  onChange={(e) => setBarberSelected(e.target.value)}
+                  onChange={(e) => setSelectedBarber(e.target.value)}
                 ></BarberCard>
               ))}
             </div>
           </div>
           <div className={styles.fieldsContainer}>
             <h2>Datos de la cita</h2>
-            <div className={styles.scheduleFields}>
+            <fieldset
+              disabled={!selectedBarber}
+              className={styles.appointmentFields}
+            >
               <Select
-                disabled={!barberSelected}
                 options={status}
                 {...statusValidation}
                 onChange={(e) => setSelectedStatus(e.target.value)}
               ></Select>
-              <Input disabled={!barberSelected} {...dateValidation}></Input>
-              <Input disabled={!barberSelected} {...scheduleValidation}></Input>
-            </div>
+              <Input {...dateValidation}></Input>
+              <div className={styles.timeContainer}>
+                <span>Hora de la cita</span>
+                <div className={styles.times}>
+                  {timesAvailable.map((time) => (
+                    <TimeRadio
+                      key={time.id}
+                      time={time}
+                      onChange={(e) => setSelectedTime(e.target.value)}
+                    ></TimeRadio>
+                  ))}
+                </div>
+              </div>
+            </fieldset>
           </div>
         </div>
       </form>

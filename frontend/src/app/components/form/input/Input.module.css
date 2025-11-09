@@ -4,6 +4,11 @@
     grid-template-rows: auto 1fr 0.5fr;
 }
 
+.field>select {
+    font-size: 0.9rem;
+    min-height: 3em;
+}
+
 .field>label {
     font-weight: 600;
     font-size: 0.9rem;

@@ -2,27 +2,29 @@
     display: grid;
     font-size: 0.8rem;
     gap: 1em;
+    justify-items: center;
 }
 
 .photoContainer {
     aspect-ratio: 4/5;
     max-width: 10em;
     overflow: hidden;
+    border-radius: 2em;
 }
 
 .photoContainer img {
     width: 100%;
     object-fit: cover;
-    border-radius: 2em;
 }
 
 .radioContainer {
     display: flex;
     align-items: center;
+    max-width: 12em;
 }
 
 .radioContainer label {
-    max-width: 10em;
+    overflow: hidden;
 }
 
 .radioContainer p {

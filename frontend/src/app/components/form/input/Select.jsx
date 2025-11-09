@@ -20,7 +20,7 @@ const Select = ({ id, label, options, disabled, onChange }) => {
         </option>
         {options.map((value) => {
           return (
-            <option key={value.id} value={value.id}>
+            <option key={value.id} value={value.value}>
               {value.name}
             </option>
           );
