@@ -2,6 +2,7 @@
 import CreateNewLayout from "@/app/components/base_layout/CreateNew/CreateNewLayout";
 import { servicesRoute } from "@/app/utils/routes";
 import ServiceForm from "../ServiceForm/ServiceForm";
+import { createService } from "../api/services";
 
 export default function NewService() {
   return (
@@ -9,7 +10,9 @@ export default function NewService() {
       title={"Registrar nuevo servicio"}
       returnRoute={servicesRoute}
     >
-      <ServiceForm></ServiceForm>
+      <ServiceForm
+        onSubmit={createService}
+      ></ServiceForm>
     </CreateNewLayout>
   );
 }

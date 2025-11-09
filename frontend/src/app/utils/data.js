@@ -42,20 +42,20 @@ export const appointments = [
 
 export const appointments_fields = [
   {
-    header: "Nombre",
-    name: "customer",
+    headerName: "Nombre",
+    field: "customer",
   },
   {
-    header: "Estado",
-    name: "status",
+    headerName: "Estado",
+    field: "status",
   },
   {
-    header: "Fecha",
-    name: "date",
+    headerName: "Fecha",
+    field: "date",
   },
   {
-    header: "Hora",
-    name: "time",
+    headerName: "Hora",
+    field: "time",
   },
 ];
 
@@ -138,23 +138,29 @@ export const servicesEntries = [
     tipo: "Combo",
   },
 ];
+export const defaultColDef={
+    resizable: true,
+    sortable: true,
+    flex: 2,
+    minWidth: 100,
+  };
 
 export const serviceFields = [
   {
-    header: "Nombre",
-    name: "name",
+    headerName: "Nombre",
+    field: "name",
   },
   {
-    header: "Precio",
-    name: "precio",
+    headerName: "Precio",
+    field: "precio",
   },
   {
-    header: "Duracion Aproximada",
-    name: "duracion",
+    headerName: "Duracion Aproximada",
+    field: "duracion",
   },
   {
-    header: "Tipo",
-    name: "tipo",
+    headerName: "Tipo",
+    field: "tipo",
   },
 ];
 

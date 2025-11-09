@@ -1,10 +1,13 @@
 "use client";
 import styles from "../Main.module.css";
-import Table from "@/app/components/index_table/Table";
 import { useRouter } from "next/navigation";
 import Layout from "@/app/components/base_layout/Layout";
 import { serviceFields, servicesEntries } from "@/app/utils/data";
 import { appointmentsRoute, newServiceRoute } from "@/app/utils/routes";
+import { AgGridReact } from "ag-grid-react";
+import { ModuleRegistry, AllCommunityModule } from 'ag-grid-community';
+ModuleRegistry.registerModules([AllCommunityModule]);
+import { defaultColDef } from "@/app/utils/data";
 
 export default function Services() {
   const router = useRouter();
@@ -24,7 +27,7 @@ export default function Services() {
           </div>
         </div>
         <div className={styles.tableContainer}>
-          <Table entries={servicesEntries} fields={serviceFields}></Table>
+          <AgGridReact defaultColDef={defaultColDef} rowData={servicesEntries} columnDefs={serviceFields}/> 
         </div>
       </div>
     </Layout>

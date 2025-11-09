@@ -5,7 +5,11 @@ export const durationValidation = {
   name: "duration",
   label: "Duracion",
   validation: {
-    required: "Ingrese la duración "
+    required: "Ingrese la duración ",
+    min: {
+      value: 10,
+      message: "El servicio debe durar mas de 10 minutos"
+    },
   }
 }
 

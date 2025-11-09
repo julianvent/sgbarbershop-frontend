@@ -1,6 +1,5 @@
 "use client";
 import styles from "../Main.module.css";
-import Table from "@/app/components/index_table/Table";
 import { useRouter } from "next/navigation";
 import Layout from "@/app/components/base_layout/Layout";
 import {
@@ -9,6 +8,10 @@ import {
   appointments_fields,
 } from "../../utils/data";
 import { newAppointmentRoute } from "@/app/utils/routes";
+import { AgGridReact } from "ag-grid-react";
+import { ModuleRegistry, AllCommunityModule } from 'ag-grid-community';
+ModuleRegistry.registerModules([AllCommunityModule]);
+import { defaultColDef } from "@/app/utils/data";
 
 export default function Appointments() {
   const router = useRouter();
@@ -25,11 +28,7 @@ export default function Appointments() {
           </button>
         </div>
         <div className={styles.tableContainer}>
-          <Table
-            entries={appointments}
-            fields={appointments_fields}
-            actions={appointments_actions}
-          ></Table>
+          <AgGridReact defaultColDef={defaultColDef} rowData={appointments} columnDefs={appointments_fields}/> 
         </div>
       </div>
     </Layout>

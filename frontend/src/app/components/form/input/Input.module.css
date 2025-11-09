@@ -32,3 +32,13 @@
     border-radius: 5px;
     border-color: rgba(0, 0, 0, 0.1);
 }
+
+.field >textArea {
+    padding: 0.5em;
+    font-size: 0.9rem;
+    border-radius: 6px;
+    border-color: rgba(0, 0, 0, 0.1);
+    border-width: 1px;
+    height: 150px;
+    resize: none;
+}

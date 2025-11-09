@@ -8,8 +8,9 @@ import {
   descriptionValidation,
 } from "@/app/utils/servicesValidators";
 import { useState } from "react";
-import inputStyles from "@/app/components/form/input/Input.module.css";
 import { useRouter } from "next/navigation";
+import TextArea from "@/app/components/form/input/TextArea";
+import { servicesRoute } from "@/app/utils/routes";
 
 export default function ServiceForm({ onSubmit, id }) {
   const router = useRouter();
@@ -17,6 +18,9 @@ export default function ServiceForm({ onSubmit, id }) {
   const methods = useForm();
   const submit = methods.handleSubmit(async (data) => {
     setIsCreatingService(true);
+    if(id){
+      await onSubmit(data, id);
+    }
     await onSubmit(data);
   });
 
@@ -28,7 +32,6 @@ export default function ServiceForm({ onSubmit, id }) {
           submit();
         }}
       >
-        <h1>{id ? "Editando servicio" : "Registrar nuevo servicio"}</h1>
 
         <div className={styles.fieldsContainer}>
           <div className={styles.row}>
@@ -37,24 +40,16 @@ export default function ServiceForm({ onSubmit, id }) {
             <Input {...durationValidation}></Input>
           </div>
           <div className={styles.soloRow}>
-            <div className={inputStyles.field}>
-              <label htmlFor={descriptionValidation.id}>
-                {descriptionValidation.label}
-              </label>
-              <textarea
-                className={styles.textArea}
-                name={descriptionValidation.name}
-                id={descriptionValidation.id}
-              ></textarea>
-            </div>
-          </div>
+            <TextArea {...descriptionValidation}></TextArea>
 
+          </div>
+            
           <div className={styles.fieldsConta}>
-            <div className={styles.cornerButtons}>
+            <div className={styles.buttons}>
               <button
                 type="button"
-                className={styles.cancelBoton}
-                onClick={() => router.push("/dashboard/services")}
+                className={styles.cancelButton}
+                onClick={() => router.push(servicesRoute)}
               >
                 Cancelar
               </button>
