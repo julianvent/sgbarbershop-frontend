@@ -10,18 +10,40 @@ export default function Header() {
         <Link href={appointmentsRoute}>
           <h1>Sagoz - Barbershop</h1>
         </Link>
-        <ul className={styles.dropdown}>
-          <li>
-            <figure>
-              <img src="/circle-user-solid-full.svg" alt="" />
-            </figure>
-            <ul>
-              <li>
-                <a href="/">Cerrar sesión</a>
-              </li>
-            </ul>
-          </li>
-        </ul>
+        <div className={styles.profileContainer}>
+          <span>{account.name}</span>
+          <ul className={styles.dropdown}>
+            <li>
+              <figure>
+                <img src="/circle-user-solid-full.svg" alt="" />
+              </figure>
+              <ul>
+                <li>
+                  <Link href="/">
+                    <div className={styles.iconContainer}>
+                      <img
+                        src="/icons/gear-solid-full.svg"
+                        alt="sign-out-icon"
+                      />
+                    </div>
+                    Configuración de la cuenta
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/">
+                    <div className={styles.iconContainer}>
+                      <img
+                        src="/icons/arrow-right-from-bracket-solid-full.svg"
+                        alt="sign-out-icon"
+                      />
+                    </div>
+                    Cerrar sesión
+                  </Link>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
       </div>
     </header>
   );

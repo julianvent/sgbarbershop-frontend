@@ -1,4 +1,5 @@
 // USE THIS FILE FOR FETCHING DATA FROM API
+export const account = { name: "Monkeybarber" };
 
 export const barbers = [
   { id: 1, name: "Kevin Frias Garcia", photo: "/kevin2.png" },
