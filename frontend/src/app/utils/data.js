@@ -40,31 +40,6 @@ export const appointments = [
   },
 ];
 
-export const appointments_fields = [
-  {
-    headerName: "Nombre",
-    field: "customer",
-  },
-  {
-    headerName: "Estado",
-    field: "status",
-  },
-  {
-    headerName: "Fecha",
-    field: "date",
-  },
-  {
-    headerName: "Hora",
-    field: "time",
-  },
-];
-
-export const appointments_actions = [
-  {
-    text: "Editar",
-    base_url: "/appointments/",
-  },
-];
 
 export const servicesEntries = [
   {
@@ -138,31 +113,6 @@ export const servicesEntries = [
     tipo: "Combo",
   },
 ];
-export const defaultColDef={
-    resizable: true,
-    sortable: true,
-    flex: 2,
-    minWidth: 100,
-  };
-
-export const serviceFields = [
-  {
-    headerName: "Nombre",
-    field: "name",
-  },
-  {
-    headerName: "Precio",
-    field: "precio",
-  },
-  {
-    headerName: "Duracion Aproximada",
-    field: "duracion",
-  },
-  {
-    headerName: "Tipo",
-    field: "tipo",
-  }
-];
 
 export const timesAvailable = [
   { id: 1, hour: "10", minutes: "00" },
@@ -174,4 +124,31 @@ export const timesAvailable = [
   { id: 7, hour: "11", minutes: "30" },
   { id: 8, hour: "11", minutes: "45" },
   { id: 9, hour: "12", minutes: "00" },
+];
+
+export const indexBarbers =  [
+  { 
+    id: 1, 
+    name: "Kevin Frias Garcia", 
+    last_names: "Frias Garcia",
+    phone: "555-123-4567",
+    email: "kevin@example.com",
+    photo: "/kevin2.png" 
+  },
+  { 
+    id: 2, 
+    name: "Adrian Herrera Jeronimo", 
+    last_names: "Herrera Jeronimo",
+    phone: "555-234-5678",
+    email: "adrian@example.com",
+    photo: "/kevin.png" 
+  },
+  { 
+    id: 3, 
+    name: "Jose Julian Ventura Uscanga", 
+    last_names: "Ventura Uscanga",
+    phone: "555-345-6789",
+    email: "jose@example.com",
+    photo: "/kevin.png" 
+  },
 ];
