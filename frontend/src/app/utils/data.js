@@ -17,46 +17,52 @@ export const status = [
 export const appointments = [
   {
     id: 1,
-    date: "18/10/2025",
-    time: "12:10",
-    customer: "Sebastian Hernandez",
-    phone: "9211231234",
-    status: "Confirmada",
+    customer_name: "Sebastian Hernandez",
+    customer_phone: "9211231234",
+    appointment_date: "2025-10-18",
+    appointment_time: "10:00",
+    status: "confirmed",
+    barber_id: "1",
+    services: ["1", "2"],
   },
   {
     id: 2,
-    date: "18/10/2025",
-    time: "12:30",
-    customer: "Kevin Frias",
-    phone: "9211231234",
-    status: "Confirmada",
+    customer_name: "Kevin Frias",
+    customer_phone: "9211231234",
+    appointment_date: "2025-10-18",
+    appointment_time: "11:00",
+    status: "confirmed",
+    barber_id: "2",
+    services: ["1", "2"],
   },
   {
     id: 3,
-    date: "18/10/2025",
-    time: "12:30",
-    customer: "Adrian Herrera",
-    phone: "9211231234",
-    status: "Confirmada",
+    customer_name: "Adrian Herrera",
+    customer_phone: "9211231234",
+    appointment_date: "2025-10-18",
+    appointment_time: "11:45",
+    status: "confirmed",
+    barber_id: "3",
+    services: ["1", "2"],
   },
 ];
 
 export const appointments_fields = [
   {
     headerName: "Nombre",
-    field: "customer",
+    field: "customer_name",
+  },
+  {
+    headerName: "Barbero asignado",
+    field: "barber_name",
   },
   {
     headerName: "Estado",
     field: "status",
   },
   {
-    headerName: "Fecha",
+    headerName: "Horario programado",
     field: "date",
-  },
-  {
-    headerName: "Hora",
-    field: "time",
   },
 ];
 
@@ -139,12 +145,13 @@ export const servicesEntries = [
     tipo: "Combo",
   },
 ];
-export const defaultColDef={
-    resizable: true,
-    sortable: true,
-    flex: 2,
-    minWidth: 100,
-  };
+
+export const defaultColDef = {
+  resizable: true,
+  sortable: true,
+  flex: 2,
+  minWidth: 100,
+};
 
 export const serviceFields = [
   {
@@ -162,7 +169,7 @@ export const serviceFields = [
   {
     headerName: "Tipo",
     field: "tipo",
-  }
+  },
 ];
 
 export const timesAvailable = [

@@ -14,6 +14,7 @@ export default function updateServices({params}) {
             setService(data);
        }
        load();
+       console.log(service)
     }, [id]);
   return (
     <CreateNewLayout

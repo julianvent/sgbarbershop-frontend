@@ -1,6 +1,6 @@
 import { useFormContext } from "react-hook-form";
 import styles from "./Service-Checkbox.module.css";
-import { serviceValidation } from "@/app/utils/inputValidators";
+import { serviceValidation } from "@/app/utils/appointmentValidators";
 
 export default function ServiceCheckbox({ service, onChange }) {
   const { register } = useFormContext();

@@ -1,6 +1,6 @@
 import { useFormContext } from "react-hook-form";
 import styles from "./Time-Radio.module.css";
-import { timeValidation } from "@/app/utils/inputValidators";
+import { timeValidation } from "@/app/utils/appointmentValidators";
 
 export default function TimeRadio({ time, onChange }) {
   const { register } = useFormContext();

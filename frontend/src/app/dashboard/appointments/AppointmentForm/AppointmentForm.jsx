@@ -8,10 +8,11 @@ import {
   customerNameValidation,
   dateValidation,
   phoneValidation,
+  serviceValidation,
   statusValidation,
   timeValidation,
-} from "@/app/utils/inputValidators";
-import { useState } from "react";
+} from "@/app/utils/appointmentValidators";
+import { useEffect, useState } from "react";
 import {
   barbers,
   servicesEntries,
@@ -25,12 +26,15 @@ import { appointmentsRoute } from "@/app/utils/routes";
 import { onNewAppointment } from "../api/newAppointment";
 import ServiceCheckbox from "@/app/components/form/checkbox/ServiceCheckbox";
 
-export default function AppointmentForm() {
+export default function AppointmentForm({ appointment }) {
   const [selectedBarber, setSelectedBarber] = useState(null);
 
   const router = useRouter();
 
-  const methods = useForm();
+  const methods = useForm({
+    defaultValues: appointment || {},
+  });
+
   const {
     register,
     formState: { errors },
@@ -40,6 +44,13 @@ export default function AppointmentForm() {
     onNewAppointment(data);
     router.push(appointmentsRoute);
   };
+
+  useEffect(() => {
+    if (appointment) {
+      methods.reset(appointment);
+      setSelectedBarber(appointment.barber_id);
+    }
+  }, [appointment]);
 
   return (
     <FormProvider {...methods}>
@@ -101,7 +112,13 @@ export default function AppointmentForm() {
                 )}
               </fieldset>
 
-              <fieldset className={styles.servicesContainer}>
+              <fieldset
+                className={styles.servicesContainer}
+                {...register(
+                  serviceValidation.id,
+                  serviceValidation.validation
+                )}
+              >
                 <span className={styles.fieldsTitle}>Servicios</span>
                 <div className={styles.services}>
                   {servicesEntries.map((service) => (
@@ -111,6 +128,11 @@ export default function AppointmentForm() {
                     ></ServiceCheckbox>
                   ))}
                 </div>
+                {errors[serviceValidation.id] && (
+                  <p className={styles.error} role="alert">
+                    {errors[serviceValidation.id].message}
+                  </p>
+                )}
               </fieldset>
             </fieldset>
           </div>
