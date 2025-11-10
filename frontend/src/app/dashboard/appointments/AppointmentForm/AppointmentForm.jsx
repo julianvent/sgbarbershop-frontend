@@ -80,11 +80,7 @@ export default function AppointmentForm() {
               disabled={!selectedBarber}
               className={styles.appointmentFields}
             >
-              <Select
-                options={status}
-                {...statusValidation}
-                onChange={(e) => setSelectedStatus(e.target.value)}
-              ></Select>
+              <Select options={status} {...statusValidation}></Select>
 
               <Input {...dateValidation}></Input>
 
