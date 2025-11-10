@@ -21,20 +21,44 @@
     width: 33%
 }
 
-.textArea {
-    padding: 0.5em;
-    font-size: 0.9rem;
-    border-radius: 6px;
-    border-color: rgba(0, 0, 0, 0.1);
-    border-width: 1px;
-    height: 150px;
+.buttons {
+    display: flex;
+    gap: 2em;
+    justify-self: end;
+    margin-bottom: 1%;
+    margin-right: 1%;
 }
+
+.servicesContainer {
+    display:flex;
+    flex-wrap: wrap;
+    gap: 2em;
+
+}
+
+.soloRow>label {
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.buttons button {
+    background-color: #1B54FE;
+    color: white;
+    padding: 0.75em 3em;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.buttons .cancelButton {
+    background-color: #4e4e4e;
+}
+
 
 .soloRow {
     margin-left: 1%;
     padding: 1%;
     box-sizing: content-box;
-    height: 10%;
 }
 
 .cancelBoton {

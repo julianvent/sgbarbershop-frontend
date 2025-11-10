@@ -8,7 +8,7 @@ export default function Header() {
     <header className={styles.header}>
       <div className={styles.headerContainer}>
         <Link href={appointmentsRoute}>
-          <h1>Barbershop</h1>
+          <h1>Sagoz - Barbershop</h1>
         </Link>
         <ul className={styles.dropdown}>
           <li>

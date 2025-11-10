@@ -1,13 +1,38 @@
 "use client";
 import styles from "../Main.module.css";
-import Table from "@/app/components/index_table/Table";
 import { useRouter } from "next/navigation";
 import Layout from "@/app/components/base_layout/Layout";
 import { serviceFields, servicesEntries } from "@/app/utils/data";
-import { appointmentsRoute, newServiceRoute } from "@/app/utils/routes";
+import { editService, newBundleRoute, newServiceRoute, seeService } from "@/app/utils/routes";
+import { AgGridReact } from "ag-grid-react";
+import { ModuleRegistry, AllCommunityModule } from 'ag-grid-community';
+ModuleRegistry.registerModules([AllCommunityModule]);
+import { defaultColDef } from "@/app/utils/data";
+import { ActionButton } from "@/app/components/action/ActionButton";
 
 export default function Services() {
   const router = useRouter();
+  const actions = [
+    {
+      name: 'see',
+      route: seeService
+    },
+    {
+      name: 'edit',
+      route: editService
+    }
+  ]
+  const fields = [
+    ...serviceFields,
+    {
+      headerName: "Acciones",
+      field: "id",
+      cellRenderer: (params) => (
+        <ActionButton id={params.data.id} actions={actions} />
+      ),
+      flex: 1
+    },
+  ];
 
   return (
     <Layout>
@@ -18,13 +43,13 @@ export default function Services() {
             <button onClick={() => router.push(newServiceRoute)}>
               Crear servicio
             </button>
-            <button onClick={() => router.push(appointmentsRoute)}>
+            <button onClick={() => router.push(newBundleRoute)}>
               Crear Paquete
             </button>
           </div>
         </div>
         <div className={styles.tableContainer}>
-          <Table entries={servicesEntries} fields={serviceFields}></Table>
+          <AgGridReact defaultColDef={defaultColDef} rowData={servicesEntries} columnDefs={fields}/> 
         </div>
       </div>
     </Layout>
