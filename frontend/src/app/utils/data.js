@@ -161,7 +161,7 @@ export const serviceFields = [
   {
     headerName: "Tipo",
     field: "tipo",
-  },
+  }
 ];
 
 export const timesAvailable = [

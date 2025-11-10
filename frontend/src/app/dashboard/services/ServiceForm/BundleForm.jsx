@@ -9,16 +9,12 @@ import ServiceCheckbox from "@/app/components/form/checkbox/ServiceCheckbox";
 import { servicesEntries } from "@/app/utils/data";
 import { servicesRoute } from "@/app/utils/routes";
 
-export default function BundleForm({id, onSubmit}){
+export default function BundleForm({onSubmit}){
     const router = useRouter();
     const [isCreatingService, setIsCreatingService] = useState(false);
     const methods = useForm();
     const submit = methods.handleSubmit(async (data) => {
         setIsCreatingService(true);
-        console.log(data);
-        if(id){
-            await onSubmit(data, id);
-        }
         await onSubmit(data);
     });
     

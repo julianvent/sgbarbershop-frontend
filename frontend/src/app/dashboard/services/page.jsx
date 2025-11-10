@@ -3,14 +3,36 @@ import styles from "../Main.module.css";
 import { useRouter } from "next/navigation";
 import Layout from "@/app/components/base_layout/Layout";
 import { serviceFields, servicesEntries } from "@/app/utils/data";
-import { appointmentsRoute, newBundleRoute, newServiceRoute } from "@/app/utils/routes";
+import { editService, newBundleRoute, newServiceRoute, seeService } from "@/app/utils/routes";
 import { AgGridReact } from "ag-grid-react";
 import { ModuleRegistry, AllCommunityModule } from 'ag-grid-community';
 ModuleRegistry.registerModules([AllCommunityModule]);
 import { defaultColDef } from "@/app/utils/data";
+import { ActionButton } from "@/app/components/action/ActionButton";
 
 export default function Services() {
   const router = useRouter();
+  const actions = [
+    {
+      name: 'see',
+      route: seeService
+    },
+    {
+      name: 'edit',
+      route: editService
+    }
+  ]
+  const fields = [
+    ...serviceFields,
+    {
+      headerName: "Acciones",
+      field: "id",
+      cellRenderer: (params) => (
+        <ActionButton id={params.data.id} actions={actions} />
+      ),
+      flex: 1
+    },
+  ];
 
   return (
     <Layout>
@@ -27,7 +49,7 @@ export default function Services() {
           </div>
         </div>
         <div className={styles.tableContainer}>
-          <AgGridReact defaultColDef={defaultColDef} rowData={servicesEntries} columnDefs={serviceFields}/> 
+          <AgGridReact defaultColDef={defaultColDef} rowData={servicesEntries} columnDefs={fields}/> 
         </div>
       </div>
     </Layout>

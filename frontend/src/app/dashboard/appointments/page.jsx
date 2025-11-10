@@ -4,17 +4,42 @@ import { useRouter } from "next/navigation";
 import Layout from "@/app/components/base_layout/Layout";
 import {
   appointments,
-  appointments_actions,
   appointments_fields,
 } from "../../utils/data";
-import { newAppointmentRoute } from "@/app/utils/routes";
+import { editAppointments, newAppointmentRoute, seeAppointments } from "@/app/utils/routes";
 import { AgGridReact } from "ag-grid-react";
 import { ModuleRegistry, AllCommunityModule } from 'ag-grid-community';
 ModuleRegistry.registerModules([AllCommunityModule]);
 import { defaultColDef } from "@/app/utils/data";
+import { ActionButton } from "@/app/components/action/ActionButton";
 
 export default function Appointments() {
   const router = useRouter();
+
+    const actions = [
+      {
+        name: 'see',
+        route: seeAppointments
+      },
+      {
+        name: 'edit',
+        route: editAppointments
+      }
+    ]
+    const fields = [
+      ...appointments_fields,
+      {
+        headerName: "Acciones",
+        field: "id",
+        cellRenderer: (params) => (
+          <ActionButton id={params.data.id} actions={actions} />
+        ),
+        flex: 1
+      },
+    ];
+
+
+
   return (
     <Layout>
       <div className={styles.layout}>
@@ -28,7 +53,7 @@ export default function Appointments() {
           </button>
         </div>
         <div className={styles.tableContainer}>
-          <AgGridReact defaultColDef={defaultColDef} rowData={appointments} columnDefs={appointments_fields}/> 
+          <AgGridReact defaultColDef={defaultColDef} rowData={appointments} columnDefs={fields}/> 
         </div>
       </div>
     </Layout>
