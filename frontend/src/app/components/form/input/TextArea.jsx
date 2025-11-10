@@ -10,7 +10,7 @@ export default function Textarea({ id, label, name, validation }) {
 
       <textarea
         id={id}
-        {...register(name, validation)}
+        {...register(id, validation)}
       ></textarea>
 
       {errors[id] && <span role="alert">{errors[id].message}</span>}

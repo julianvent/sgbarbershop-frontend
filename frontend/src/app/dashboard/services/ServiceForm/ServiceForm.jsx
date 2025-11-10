@@ -7,22 +7,32 @@ import {
   priceValidation,
   descriptionValidation,
 } from "@/app/utils/servicesValidators";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import TextArea from "@/app/components/form/input/TextArea";
 import { servicesRoute } from "@/app/utils/routes";
 
-export default function ServiceForm({ onSubmit, id }) {
+export default function ServiceForm({ onSubmit, service}) {
   const router = useRouter();
-  const [isCreatingService, setIsCreatingService] = useState(false);
-  const methods = useForm();
-  const submit = methods.handleSubmit(async (data) => {
-    setIsCreatingService(true);
-    if(id){
-      await onSubmit(data, id);
-    }
-    await onSubmit(data);
+  const [isCreatingBundle, setIsCreatingBundle] = useState(false);
+  const methods = useForm({
+    defaultValues: service || {}
   });
+
+  const submit = methods.handleSubmit(async (data) => {
+    setIsCreatingBundle(true);
+    if(service){
+      await onSubmit(data, service.id);
+    }else{
+      await onSubmit(data);
+    }
+  });
+
+    useEffect(() => {
+    if (service) {
+      methods.reset(service);
+    }
+  }, [service, methods]);
 
   return (
     <FormProvider {...methods}>

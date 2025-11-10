@@ -29,6 +29,18 @@
     margin-right: 1%;
 }
 
+.servicesContainer {
+    display:flex;
+    flex-wrap: wrap;
+    gap: 2em;
+
+}
+
+.soloRow>label {
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
 .buttons button {
     background-color: #1B54FE;
     color: white;

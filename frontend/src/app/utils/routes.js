@@ -3,3 +3,4 @@ export const newAppointmentRoute = appointmentsRoute + "/new";
 
 export const servicesRoute = "/dashboard/services";
 export const newServiceRoute = servicesRoute + "/new";
+export const newBundleRoute = servicesRoute + "/bundles/new"

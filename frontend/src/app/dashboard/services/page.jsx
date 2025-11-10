@@ -3,7 +3,7 @@ import styles from "../Main.module.css";
 import { useRouter } from "next/navigation";
 import Layout from "@/app/components/base_layout/Layout";
 import { serviceFields, servicesEntries } from "@/app/utils/data";
-import { appointmentsRoute, newServiceRoute } from "@/app/utils/routes";
+import { appointmentsRoute, newBundleRoute, newServiceRoute } from "@/app/utils/routes";
 import { AgGridReact } from "ag-grid-react";
 import { ModuleRegistry, AllCommunityModule } from 'ag-grid-community';
 ModuleRegistry.registerModules([AllCommunityModule]);
@@ -21,7 +21,7 @@ export default function Services() {
             <button onClick={() => router.push(newServiceRoute)}>
               Crear servicio
             </button>
-            <button onClick={() => router.push(appointmentsRoute)}>
+            <button onClick={() => router.push(newBundleRoute)}>
               Crear Paquete
             </button>
           </div>
