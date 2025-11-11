@@ -5,41 +5,49 @@ import styles from "./Appointment-Form.module.css";
 import { FormProvider, useForm } from "react-hook-form";
 import {
   barberValidation,
+  customerEmailValidation,
   customerNameValidation,
   dateValidation,
   phoneValidation,
+  serviceValidation,
   statusValidation,
   timeValidation,
-} from "@/app/utils/inputValidators";
-import { useState } from "react";
+} from "@/app/utils/appointmentValidators";
+import { useEffect, useState } from "react";
 import {
   barbers,
   servicesEntries,
   status,
   timesAvailable,
 } from "../../../utils/data";
-import BarberCard from "@/app/components/form/radio/BarberCard";
-import TimeRadio from "@/app/components/form/radio/TimeRadio";
 import { useRouter } from "next/navigation";
 import { appointmentsRoute } from "@/app/utils/routes";
-import { onNewAppointment } from "../api/newAppointment";
-import ServiceCheckbox from "@/app/components/form/checkbox/ServiceCheckbox";
+import { createAppointment, updateAppointment } from "../api/appointments";
+import BarberFieldset from "@/app/components/form/barberSelector/BarberSelector";
+import TimeSelector from "@/app/components/form/timeSelector/TimeSelector";
+import ServiceSelector from "@/app/components/form/serviceSelector/ServiceSelector";
 
-export default function AppointmentForm() {
+export default function AppointmentForm({ appointment }) {
   const [selectedBarber, setSelectedBarber] = useState(null);
 
   const router = useRouter();
 
-  const methods = useForm();
-  const {
-    register,
-    formState: { errors },
-  } = methods;
+  const methods = useForm({
+    defaultValues: appointment || {},
+  });
 
   const onSubmit = (data) => {
-    onNewAppointment(data);
+    if (appointment) updateAppointment(data);
+    else createAppointment(data);
     router.push(appointmentsRoute);
   };
+
+  useEffect(() => {
+    if (appointment) {
+      methods.reset(appointment);
+      setSelectedBarber(appointment.barber_id);
+    }
+  }, [appointment]);
 
   return (
     <FormProvider {...methods}>
@@ -47,33 +55,22 @@ export default function AppointmentForm() {
         <div className={styles.formLayout}>
           <div className={styles.fieldsContainer}>
             <h2>Datos del cliente</h2>
-            <div className={styles.customerFields}>
+            <fieldset className={styles.customerFields}>
               <Input {...customerNameValidation}></Input>
               <Input {...phoneValidation}></Input>
-            </div>
-          </div>
-          <div className={styles.fieldsContainer}>
-            <h2>Asignar barbero</h2>
-            <fieldset
-              className={styles.fieldsetContainer}
-              {...register(barberValidation.id, barberValidation.validation)}
-            >
-              <div className={styles.barbers}>
-                {barbers.map((barber) => (
-                  <BarberCard
-                    key={barber.id}
-                    barber={barber}
-                    onChange={(e) => setSelectedBarber(e.target.value)}
-                  ></BarberCard>
-                ))}
-              </div>
-              {errors[barberValidation.id] && (
-                <span className={styles.error} role="alert">
-                  {errors[barberValidation.id].message}
-                </span>
-              )}
+              <Input {...customerEmailValidation}></Input>
             </fieldset>
           </div>
+
+          <div className={styles.fieldsContainer}>
+            <h2>Asignar barbero</h2>
+            <BarberFieldset
+              barbers={barbers}
+              onChange={(e) => setSelectedBarber(e.target.value)}
+              {...barberValidation}
+            ></BarberFieldset>
+          </div>
+
           <div className={styles.fieldsContainer}>
             <h2>Datos de la cita</h2>
             <fieldset
@@ -81,37 +78,15 @@ export default function AppointmentForm() {
               className={styles.appointmentFields}
             >
               <Select options={status} {...statusValidation}></Select>
-
               <Input {...dateValidation}></Input>
-
-              <fieldset
-                className={styles.timeContainer}
-                {...register(timeValidation.id, timeValidation.validation)}
-              >
-                <span className={styles.fieldsTitle}>Hora de la cita</span>
-                <div className={styles.times}>
-                  {timesAvailable.map((time) => (
-                    <TimeRadio key={time.id} time={time}></TimeRadio>
-                  ))}
-                </div>
-                {errors[timeValidation.id] && (
-                  <p className={styles.error} role="alert">
-                    {errors[timeValidation.id].message}
-                  </p>
-                )}
-              </fieldset>
-
-              <fieldset className={styles.servicesContainer}>
-                <span className={styles.fieldsTitle}>Servicios</span>
-                <div className={styles.services}>
-                  {servicesEntries.map((service) => (
-                    <ServiceCheckbox
-                      key={service.id}
-                      service={service}
-                    ></ServiceCheckbox>
-                  ))}
-                </div>
-              </fieldset>
+              <TimeSelector
+                {...timeValidation}
+                times={timesAvailable}
+              ></TimeSelector>
+              <ServiceSelector
+                {...serviceValidation}
+                services={servicesEntries}
+              ></ServiceSelector>
             </fieldset>
           </div>
           <div className={styles.buttons}>

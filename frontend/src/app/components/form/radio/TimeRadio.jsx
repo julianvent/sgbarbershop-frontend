@@ -1,8 +1,7 @@
 import { useFormContext } from "react-hook-form";
 import styles from "./Time-Radio.module.css";
-import { timeValidation } from "@/app/utils/inputValidators";
 
-export default function TimeRadio({ time, onChange }) {
+export default function TimeRadio({ id, time, onChange }) {
   const { register } = useFormContext();
 
   return (
@@ -10,7 +9,7 @@ export default function TimeRadio({ time, onChange }) {
       <input
         type="radio"
         value={`${time.hour}:${time.minutes}`}
-        {...register(timeValidation.id, { onChange: onChange })}
+        {...register(id, { onChange: onChange })}
       />
       <label>{`${time.hour}:${time.minutes}`}</label>
     </div>

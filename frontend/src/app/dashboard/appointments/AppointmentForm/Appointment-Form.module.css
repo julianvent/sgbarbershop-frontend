@@ -22,26 +22,8 @@
 .customerFields {
     display: grid;
     grid-auto-flow: column;
-    grid-template-columns: repeat(2, 1fr) 0.5fr;
+    grid-template-columns: repeat(3, 1fr);
     column-gap: 5em;
-}
-
-.fieldsetContainer {
-    display: grid;
-    justify-items: center;
-    row-gap: 1em;
-}
-
-.barbers {
-    display: grid;
-    grid-auto-flow: column;
-    gap: 2em;
-    max-width: fit-content;
-    justify-self: center;
-}
-
-.barbers BarberCard {
-    grid-row: 2;
 }
 
 .appointmentFields {
@@ -49,21 +31,6 @@
     grid-template-columns: repeat(2, 1fr) 0.5fr;
     column-gap: 5em;
     row-gap: 1em;
-}
-
-.timeContainer {
-    display: grid;
-    grid-template-rows: auto auto 1fr;
-    gap: 0.3em;
-    grid-column: 1/1;
-}
-
-.times {
-    display: grid;
-    max-width: fit-content;
-    column-gap: 3em;
-    row-gap: 0.7em;
-    grid-template-columns: repeat(4, 1fr);
 }
 
 .buttons {
@@ -85,56 +52,13 @@
     background-color: #4e4e4e;
 }
 
-.error {
-    font-size: 0.8rem;
-    font-weight: normal;
-    color: rgb(196, 0, 0);
-}
-
-.servicesContainer {
-    display: grid;
-    gap: 0.3em;
-    grid-row: 2;
-    grid-column: 2/2;
-}
-
-.services {
-    display: grid;
-    grid-template-columns: repeat(2, auto);
-    row-gap: 0.5em;
-}
-
-.fieldsTitle {
-    font-weight: bold;
-    font-size: 0.9rem;
-}
-
 @media (width <=800) {
 
     .customerFields,
-    .appointmentFields,
-    .barbers {
+    .appointmentFields {
         grid-auto-flow: row;
         grid-template-columns: auto;
         row-gap: 1em;
-    }
-
-    .timeContainer {
-        grid-column: 1;
-    }
-
-    .times {
-        column-gap: 1em;
-        grid-template-columns: repeat(3, auto);
-    }
-
-    .servicesContainer {
-        grid-column: 1;
-        grid-row: auto;
-    }
-
-    .services {
-        grid-template-columns: 1fr;
     }
 
     .buttons button {
