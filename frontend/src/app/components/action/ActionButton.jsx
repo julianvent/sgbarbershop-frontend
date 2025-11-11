@@ -18,7 +18,7 @@ export function ActionButton({ id, actions }) {
       {edit && (
         <button onClick={() => handleClick(edit)}>
           <div className={styles.iconContainer}>
-            <img src="/icons/pen-to-square-solid-full.svg" alt="" />
+            <img src="/icons/pen-to-square-solid-full.svg" alt="Edit" />
           </div>
         </button>
       )}
@@ -26,7 +26,7 @@ export function ActionButton({ id, actions }) {
       {see && (
         <button onClick={() => handleClick(see)}>
           <div className={styles.iconContainer}>
-            <img src="/icons/circle-info-solid-full.svg" alt="" />
+            <img src="/icons/circle-info-solid-full.svg" alt="View details" />
           </div>
         </button>
       )}

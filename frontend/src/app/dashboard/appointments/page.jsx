@@ -2,7 +2,7 @@
 import styles from "../Main.module.css";
 import { useRouter } from "next/navigation";
 import Layout from "@/app/components/base_layout/Layout";
-import { appointments, appointments_fields } from "../../utils/data";
+import { appointments_fields } from "../../utils/data";
 import {
   editAppointments,
   newAppointmentRoute,
@@ -25,8 +25,7 @@ export default function Appointments() {
     }
 
     fetchAppointments();
-    console.log(appointmentEntries);
-  });
+  }, []);
 
   const router = useRouter();
 

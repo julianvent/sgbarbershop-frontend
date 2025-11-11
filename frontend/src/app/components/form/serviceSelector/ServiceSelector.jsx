@@ -14,15 +14,13 @@ export default function ServiceSelector({ services, id, validation }) {
     >
       <span className={styles.fieldsTitle}>Servicios</span>
       <div className={styles.services}>
-        <div className={styles.services}>
-          {services.map((service) => (
-            <ServiceCheckbox
-              key={service.id}
-              service={service}
-              id={id}
-            ></ServiceCheckbox>
-          ))}
-        </div>
+        {services.map((service) => (
+          <ServiceCheckbox
+            key={service.id}
+            service={service}
+            id={id}
+          ></ServiceCheckbox>
+        ))}
       </div>
       {errors[id] && (
         <p className={`error`} role="alert">

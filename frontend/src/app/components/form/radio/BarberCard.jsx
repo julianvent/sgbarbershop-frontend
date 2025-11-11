@@ -1,6 +1,5 @@
 import { useFormContext } from "react-hook-form";
 import styles from "./Barber-Card.module.css";
-import { barberValidation } from "@/app/utils/appointmentValidators";
 
 export default function BarberCard({ id, barber, onChange }) {
   const { register } = useFormContext();
