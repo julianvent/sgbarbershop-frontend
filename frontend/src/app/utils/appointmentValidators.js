@@ -57,3 +57,16 @@ export const serviceValidation = {
     required: "Selecciona uno o más servicios",
   },
 };
+
+export const customerEmailValidation = {
+  id: "customer_email",
+  type: "email",
+  label: "Correo electrónico",
+  validation: {
+    required: "Requerido",
+    pattern: {
+      value: /\S+@\S+\.\S+/,
+      message: "Formato de correo inválido",
+    },
+  },
+};

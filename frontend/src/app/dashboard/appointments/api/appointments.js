@@ -13,3 +13,11 @@ export async function getAppointment({ appointmentId }) {
   });
   return fetchAppointment;
 }
+
+export function createAppointment(data) {
+  console.log(data);
+}
+
+export function updateAppointment(data) {
+  console.log(data);
+}

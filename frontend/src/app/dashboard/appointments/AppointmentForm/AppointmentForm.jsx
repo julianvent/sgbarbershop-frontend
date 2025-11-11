@@ -5,6 +5,7 @@ import styles from "./Appointment-Form.module.css";
 import { FormProvider, useForm } from "react-hook-form";
 import {
   barberValidation,
+  customerEmailValidation,
   customerNameValidation,
   dateValidation,
   phoneValidation,
@@ -19,12 +20,12 @@ import {
   status,
   timesAvailable,
 } from "../../../utils/data";
-import BarberCard from "@/app/components/form/radio/BarberCard";
-import TimeRadio from "@/app/components/form/radio/TimeRadio";
 import { useRouter } from "next/navigation";
 import { appointmentsRoute } from "@/app/utils/routes";
-import { onNewAppointment } from "../api/newAppointment";
-import ServiceCheckbox from "@/app/components/form/checkbox/ServiceCheckbox";
+import { createAppointment, updateAppointment } from "../api/appointments";
+import BarberFieldset from "@/app/components/form/barberSelector/BarberSelector";
+import TimeSelector from "@/app/components/form/timeSelector/TimeSelector";
+import ServiceSelector from "@/app/components/form/serviceSelector/ServiceSelector";
 
 export default function AppointmentForm({ appointment }) {
   const [selectedBarber, setSelectedBarber] = useState(null);
@@ -35,13 +36,9 @@ export default function AppointmentForm({ appointment }) {
     defaultValues: appointment || {},
   });
 
-  const {
-    register,
-    formState: { errors },
-  } = methods;
-
   const onSubmit = (data) => {
-    onNewAppointment(data);
+    if (appointment) updateAppointment(data);
+    else createAppointment(data);
     router.push(appointmentsRoute);
   };
 
@@ -58,33 +55,22 @@ export default function AppointmentForm({ appointment }) {
         <div className={styles.formLayout}>
           <div className={styles.fieldsContainer}>
             <h2>Datos del cliente</h2>
-            <div className={styles.customerFields}>
+            <fieldset className={styles.customerFields}>
               <Input {...customerNameValidation}></Input>
               <Input {...phoneValidation}></Input>
-            </div>
-          </div>
-          <div className={styles.fieldsContainer}>
-            <h2>Asignar barbero</h2>
-            <fieldset
-              className={styles.fieldsetContainer}
-              {...register(barberValidation.id, barberValidation.validation)}
-            >
-              <div className={styles.barbers}>
-                {barbers.map((barber) => (
-                  <BarberCard
-                    key={barber.id}
-                    barber={barber}
-                    onChange={(e) => setSelectedBarber(e.target.value)}
-                  ></BarberCard>
-                ))}
-              </div>
-              {errors[barberValidation.id] && (
-                <span className={styles.error} role="alert">
-                  {errors[barberValidation.id].message}
-                </span>
-              )}
+              <Input {...customerEmailValidation}></Input>
             </fieldset>
           </div>
+
+          <div className={styles.fieldsContainer}>
+            <h2>Asignar barbero</h2>
+            <BarberFieldset
+              barbers={barbers}
+              onChange={(e) => setSelectedBarber(e.target.value)}
+              {...barberValidation}
+            ></BarberFieldset>
+          </div>
+
           <div className={styles.fieldsContainer}>
             <h2>Datos de la cita</h2>
             <fieldset
@@ -92,48 +78,15 @@ export default function AppointmentForm({ appointment }) {
               className={styles.appointmentFields}
             >
               <Select options={status} {...statusValidation}></Select>
-
               <Input {...dateValidation}></Input>
-
-              <fieldset
-                className={styles.timeContainer}
-                {...register(timeValidation.id, timeValidation.validation)}
-              >
-                <span className={styles.fieldsTitle}>Hora de la cita</span>
-                <div className={styles.times}>
-                  {timesAvailable.map((time) => (
-                    <TimeRadio key={time.id} time={time}></TimeRadio>
-                  ))}
-                </div>
-                {errors[timeValidation.id] && (
-                  <p className={styles.error} role="alert">
-                    {errors[timeValidation.id].message}
-                  </p>
-                )}
-              </fieldset>
-
-              <fieldset
-                className={styles.servicesContainer}
-                {...register(
-                  serviceValidation.id,
-                  serviceValidation.validation
-                )}
-              >
-                <span className={styles.fieldsTitle}>Servicios</span>
-                <div className={styles.services}>
-                  {servicesEntries.map((service) => (
-                    <ServiceCheckbox
-                      key={service.id}
-                      service={service}
-                    ></ServiceCheckbox>
-                  ))}
-                </div>
-                {errors[serviceValidation.id] && (
-                  <p className={styles.error} role="alert">
-                    {errors[serviceValidation.id].message}
-                  </p>
-                )}
-              </fieldset>
+              <TimeSelector
+                {...timeValidation}
+                times={timesAvailable}
+              ></TimeSelector>
+              <ServiceSelector
+                {...serviceValidation}
+                services={servicesEntries}
+              ></ServiceSelector>
             </fieldset>
           </div>
           <div className={styles.buttons}>
