@@ -6,7 +6,7 @@ export default function Sidebar() {
     <div className={styles.sidebar}>
       <ul>
         <li>
-          <Link href="./appointments">
+          <Link href="/dashboard/appointments">
             <div className={styles.iconContainer}>
               <img src="/icons/calendar-check-regular-full.svg" alt="" />
             </div>
@@ -14,7 +14,7 @@ export default function Sidebar() {
           </Link>
         </li>
         <li>
-          <Link href="./services">
+          <Link href="/dashboard/services">
             <div className={styles.iconContainer}>
               <img src="/icons/scissors-solid-full.svg" alt="" />
             </div>
@@ -22,7 +22,7 @@ export default function Sidebar() {
           </Link>
         </li>
         <li>
-          <Link href="./staff">
+          <Link href="/dashboard/staff">
             <div className={styles.iconContainer}>
               <img src="/icons/users-solid-full.svg" alt="" />
             </div>

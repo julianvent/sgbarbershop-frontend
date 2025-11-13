@@ -10,15 +10,53 @@
 
 }
 
+.imageContainer {
+    position: relative; 
+    width: 450px;
+    height: 450px;
+}
+
+.imageFit{
+    width: 100%;
+    height: 100%;
+    object-fit:contain;
+}
+
+.imageFitBack{
+    width: 100%;
+    height: 100%;
+    object-fit:contain;
+    background-color: #252525;
+}
+
 .row {
-    padding: 1%;
     box-sizing: content-box;
+    display: flex;
+    margin-bottom: 2%;
+    margin-top: 2%;
+}
+
+.subFields{
+    align-self: center;
+}
+
+.columns{
+    padding: 2%;
+    gap: 5%;
     display: flex;
 }
 
+.columns > div {
+    width: 70%;
+}
+.columns > .imageContainer {
+    width: 30%;
+}
+
+
 .row div {
-    margin-left: 1%;
-    width: 48%
+    width: 50%;
+    padding: 2%;
 }
 
 .buttons {
@@ -27,18 +65,6 @@
     justify-self: end;
     margin-bottom: 1%;
     margin-right: 1%;
-}
-
-.servicesContainer {
-    display:flex;
-    flex-wrap: wrap;
-    gap: 2em;
-
-}
-
-.soloRow>label {
-    font-weight: 600;
-    font-size: 0.9rem;
 }
 
 .buttons button {
@@ -54,32 +80,8 @@
     background-color: #4e4e4e;
 }
 
-
-.soloRow {
-    margin-left: 1%;
-    padding: 1%;
-    box-sizing: content-box;
-}
-
-.cancelBoton {
-    background-color: black;
-    color: white;
-    padding: 1%;
-}
-
-.fieldsConta {
-    display: block;
-}
-
-.cornerButtons {
-    align-items: center;
-    justify-self: end;
-    padding: 1%;
-    box-sizing: content-box;
-}
-
-.cornerButtons>button {
-    margin-left: 10px;
+.buttons .deleteButton {
+    background-color: #b30000;
 }
 
 
@@ -100,9 +102,18 @@
         width: 100%;
     }
 
-    .soloRow {
+    .columns{
+        display: grid ;
+    }
+
+    .columns > .imageContainer {
+        width: 100%;
+    }
+    .columns > div {
+        width: 100%;
         margin: 0;
-        margin-left: 2%;
+        margin-left:1%;
         display: flexbox;
     }
+
 }

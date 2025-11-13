@@ -15,10 +15,6 @@ export const createBundle = async (data) => {
 
 };
 
-export const updateBundle = async (data) => {
-    console.log(data);
-};
-
 export const getService = async (id) => {
     for(const service of servicesEntries){
         if(id == service.id){
@@ -28,3 +24,7 @@ export const getService = async (id) => {
 
     return null;
 };
+
+export const deleteService = async (id) => {
+    console.log('Eliminando servicio ' + id)
+}

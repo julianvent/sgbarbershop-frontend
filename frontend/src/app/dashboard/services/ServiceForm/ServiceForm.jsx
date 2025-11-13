@@ -6,11 +6,14 @@ import {
   nameValidation,
   priceValidation,
   descriptionValidation,
+  typeValidation,
 } from "@/app/utils/servicesValidators";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import TextArea from "@/app/components/form/input/TextArea";
 import { servicesRoute } from "@/app/utils/routes";
+import StatusSelect from "@/app/components/form/input/StatusSelect";
+import { statusValidation } from "@/app/utils/servicesValidators";
 
 export default function ServiceForm({ onSubmit, service}) {
   const router = useRouter();
@@ -47,11 +50,16 @@ export default function ServiceForm({ onSubmit, service}) {
           <div className={styles.row}>
             <Input {...nameValidation}></Input>
             <Input {...priceValidation}></Input>
-            <Input {...durationValidation}></Input>
           </div>
+
+          <div className={styles.row}>
+            <Input {...durationValidation}></Input>
+            <Input {...typeValidation}></Input>
+            {service&&(<StatusSelect {...statusValidation}/>)}
+          </div>
+
           <div className={styles.soloRow}>
             <TextArea {...descriptionValidation}></TextArea>
-
           </div>
             
           <div className={styles.fieldsConta}>

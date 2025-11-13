@@ -2,13 +2,13 @@
 import styles from "../Main.module.css";
 import { useRouter } from "next/navigation";
 import Layout from "@/app/components/base_layout/Layout";
-import { serviceFields, servicesEntries } from "@/app/utils/data";
+import { servicesEntries } from "@/app/utils/data";
 import { editService, newBundleRoute, newServiceRoute, seeService } from "@/app/utils/routes";
+import { serviceFields,defaultColDef } from "@/app/utils/columns";
+import { ActionButton } from "@/app/components/action/ActionButton";
 import { AgGridReact } from "ag-grid-react";
 import { ModuleRegistry, AllCommunityModule } from 'ag-grid-community';
 ModuleRegistry.registerModules([AllCommunityModule]);
-import { defaultColDef } from "@/app/utils/data";
-import { ActionButton } from "@/app/components/action/ActionButton";
 
 export default function Services() {
   const router = useRouter();
@@ -27,10 +27,17 @@ export default function Services() {
     {
       headerName: "Acciones",
       field: "id",
-      cellRenderer: (params) => (
-        <ActionButton id={params.data.id} actions={actions} />
-      ),
-      flex: 1
+      cellRenderer: (params) => {
+        const service = params.data;
+
+        const filteredActions =
+          service.tipo === "Paquete"
+            ? actions.filter((a) => a.name !== "edit")
+            : actions;
+
+        return <ActionButton id={service.id} actions={filteredActions} />;
+      },
+      flex: 1,
     },
   ];
 

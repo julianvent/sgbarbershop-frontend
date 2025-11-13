@@ -2,16 +2,12 @@
 import styles from "../Main.module.css";
 import { useRouter } from "next/navigation";
 import Layout from "@/app/components/base_layout/Layout";
-import { appointments_fields } from "../../utils/data";
-import {
-  editAppointments,
-  newAppointmentRoute,
-  seeAppointments,
-} from "@/app/utils/routes";
+import {  appointments,} from "../../utils/data";
+import { editAppointments, newAppointmentRoute, seeAppointments } from "@/app/utils/routes";
 import { AgGridReact } from "ag-grid-react";
 import { ModuleRegistry, AllCommunityModule } from "ag-grid-community";
 ModuleRegistry.registerModules([AllCommunityModule]);
-import { defaultColDef } from "@/app/utils/data";
+import { defaultColDef, appointmentColumns } from "@/app/utils/columns";
 import { ActionButton } from "@/app/components/action/ActionButton";
 import { getAppointments } from "./api/appointments";
 import { useEffect, useState } from "react";
@@ -41,7 +37,7 @@ export default function Appointments() {
   ];
 
   const fields = [
-    ...appointments_fields,
+    ...appointmentColumns,
     {
       headerName: "",
       field: "id",
