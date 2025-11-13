@@ -27,10 +27,17 @@ export default function Services() {
     {
       headerName: "Acciones",
       field: "id",
-      cellRenderer: (params) => (
-        <ActionButton id={params.data.id} actions={actions} />
-      ),
-      flex: 1
+      cellRenderer: (params) => {
+        const service = params.data;
+
+        const filteredActions =
+          service.tipo === "Paquete"
+            ? actions.filter((a) => a.name !== "edit")
+            : actions;
+
+        return <ActionButton id={service.id} actions={filteredActions} />;
+      },
+      flex: 1,
     },
   ];
 

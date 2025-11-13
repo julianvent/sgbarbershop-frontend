@@ -60,3 +60,11 @@ export const photoValidation = {
     }
   },
 };
+
+export const statusValidation = {
+  id: "status",
+  label: "Estado",
+  validation: {
+    required: "Seleccione el estado",
+  },
+};

@@ -13,6 +13,17 @@ export const durationValidation = {
   }
 }
 
+export const typeValidation = {
+  id: "tipo",
+  type: "text",
+  name: "type",
+  label: "Tipo del Servicio",
+  validation: {
+    required: "Ingrese el tipo del servicio",
+  },
+};
+
+
 export const nameValidation = {
   id: "name",
   type: "text",
@@ -42,3 +53,11 @@ export const descriptionValidation = {
     required: "Ingrese una breve descripcion"
   }
 }
+
+export const statusValidation = {
+  id: "status",
+  label: "Estado",
+  validation: {
+    required: "Seleccione el estado",
+  },
+};

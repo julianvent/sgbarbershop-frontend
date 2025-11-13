@@ -24,3 +24,7 @@ export const getService = async (id) => {
 
     return null;
 };
+
+export const deleteService = async (id) => {
+    console.log('Eliminando servicio ' + id)
+}

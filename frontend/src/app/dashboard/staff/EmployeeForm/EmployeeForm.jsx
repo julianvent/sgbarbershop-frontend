@@ -2,10 +2,11 @@
 import { FormProvider, useForm } from "react-hook-form";
 import styles from "./styles.module.css"
 import Input from "@/app/components/form/input/Input";
-import { emailValidation, lastNameValidation, nameValidation, phoneValidation, photoValidation } from "@/app/utils/employeesValidators";
+import { emailValidation, lastNameValidation, nameValidation, phoneValidation, photoValidation, statusValidation } from "@/app/utils/employeesValidators";
 import { useEffect, useState } from "react";
 import { staffRoute } from "@/app/utils/routes";
 import { useRouter } from "next/navigation";
+import StatusSelect from "@/app/components/form/input/StatusSelect";
 
 
 export default function EmployeeForm({onSubmit,employee}){
@@ -74,6 +75,9 @@ export default function EmployeeForm({onSubmit,employee}){
                         <div className={styles.row}>
                             <Input {...phoneValidation}/>
                             <Input {...emailValidation}/>
+                        </div>
+                        <div className={styles.row}>
+                            {employee&&(<StatusSelect {...statusValidation}/>)}
                         </div>
 
                     </div>

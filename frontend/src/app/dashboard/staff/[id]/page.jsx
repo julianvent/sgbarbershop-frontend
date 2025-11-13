@@ -8,6 +8,7 @@ import show from "./styles.module.css";
 import { Status } from "@/app/components/form/status/Status";
 import { staffRoute, editStaffRoute } from "@/app/utils/routes";
 import { useRouter } from "next/navigation";
+import Buttons from "@/app/components/form/model_buttons/Buttons";
 export default function EmployeeDetail({params}){
     const router = useRouter();
     const {id} = React.use(params);
@@ -72,30 +73,10 @@ export default function EmployeeDetail({params}){
 
                 </div>
                 
-                <div className={styles.buttons}>
-                    <button
-                        className={styles.cancelButton}
-                        onClick={(e) => {
-                            e.preventDefault();
-                            router.push(staffRoute);
-                        }}>
-                        Regresar
-                    </button>
-                    <button
-                        onClick={(e) => {
-                            const url = editStaffRoute.replace('${id}', id);
-                            e.preventDefault();
-                            router.push(url);
-
-                        }}>
-                        Editar
-                    </button>
-                    <button className={styles.deleteButton}
-                        onClick={ (e) => {
-                            e.preventDefault();
-                            deleteEmployee(id);
-                    }}>Eliminar</button>
-                </div>
+                {
+                        employee&&(<Buttons id={employee.id} modelType={'staff'}/>
+                        )
+                }
             </div>
             
         </Layout>
