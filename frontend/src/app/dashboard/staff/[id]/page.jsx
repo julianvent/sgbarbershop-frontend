@@ -6,7 +6,6 @@ import styles from "../EmployeeForm/styles.module.css";
 import layout from "../../Main.module.css";
 import show from "./styles.module.css";
 import { Status } from "@/app/components/form/status/Status";
-import { staffRoute, editStaffRoute } from "@/app/utils/routes";
 import { useRouter } from "next/navigation";
 import Buttons from "@/app/components/form/model_buttons/Buttons";
 export default function EmployeeDetail({params}){

@@ -18,7 +18,7 @@ export default function updateStaff({params}){
 
     return (
         <CreateNewLayout
-        title={"Registrar empleado"}
+        title={"Actualizar registro del empleado - " + (employee ? employee.name + ' ' + employee.last_names : '...')}
         returnRoute={staffRoute}
         >
             <EmployeeForm 
