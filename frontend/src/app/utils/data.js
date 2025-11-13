@@ -126,29 +126,33 @@ export const timesAvailable = [
   { id: 9, hour: "12", minutes: "00" },
 ];
 
-export const indexBarbers =  [
+export const indexBarbers = [
   { 
     id: 1, 
-    name: "Kevin Frias Garcia", 
+    name: "Kevin", 
     last_names: "Frias Garcia",
     phone: "555-123-4567",
     email: "kevin@example.com",
+    state: "Activo",
     photo: "/kevin2.png" 
   },
   { 
     id: 2, 
-    name: "Adrian Herrera Jeronimo", 
+    name: "Adrian", 
     last_names: "Herrera Jeronimo",
     phone: "555-234-5678",
     email: "adrian@example.com",
+    state: "Activo",
     photo: "/kevin.png" 
   },
   { 
     id: 3, 
-    name: "Jose Julian Ventura Uscanga", 
+    name: "Jose", 
     last_names: "Ventura Uscanga",
     phone: "555-345-6789",
     email: "jose@example.com",
+    state: "Activo",
     photo: "/kevin.png" 
   },
 ];
+

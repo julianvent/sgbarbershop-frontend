@@ -7,7 +7,7 @@ import { editAppointments, newAppointmentRoute, seeAppointments } from "@/app/ut
 import { AgGridReact } from "ag-grid-react";
 import { ModuleRegistry, AllCommunityModule } from 'ag-grid-community';
 ModuleRegistry.registerModules([AllCommunityModule]);
-import { defaultColDef, appointments_fields } from "@/app/utils/columns";
+import { defaultColDef, appointmentColumns } from "@/app/utils/columns";
 import { ActionButton } from "@/app/components/action/ActionButton";
 
 export default function Appointments() {
@@ -24,7 +24,7 @@ export default function Appointments() {
       }
     ]
     const fields = [
-      ...appointments_fields,
+      ...appointmentColumns,
       {
         headerName: "Acciones",
         field: "id",

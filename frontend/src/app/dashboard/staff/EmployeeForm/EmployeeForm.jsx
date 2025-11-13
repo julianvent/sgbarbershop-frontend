@@ -60,9 +60,9 @@ export default function EmployeeForm({onSubmit,employee}){
                     <div className={styles.columns}>
                     <div className={styles.imageContainer}>
                         <img
-                            src={preview ? preview : '/image.svg'}
-                            alt="Panel de Homestuck"
-                            className={preview ? styles.imageFitBack :  styles.imageFit}
+                            src={employee && !preview ? employee.photo :(preview ? preview : '/image.svg')}
+                            alt="Imagen del personal"
+                            className={(preview || employee) ? styles.imageFitBack :  styles.imageFit}
                         />
                     </div>
                         

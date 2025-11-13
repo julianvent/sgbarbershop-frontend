@@ -2,7 +2,7 @@
 import Layout from "@/app/components/base_layout/Layout";
 import styles from "../Main.module.css";
 import { useRouter } from "next/navigation";
-import { editAppointments, editStaffRoute, newStaffRoute, seeAppointments, seeStaffRoute } from "@/app/utils/routes";
+import { editStaffRoute, newStaffRoute, seeStaffRoute } from "@/app/utils/routes";
 import { indexBarbers } from "@/app/utils/data";
 import { defaultColDef, employeesEntries } from "@/app/utils/columns";
 import { AgGridReact } from "ag-grid-react";

@@ -6,13 +6,13 @@ export default function Sidebar() {
     <div className={styles.sidebar}>
       <ul>
         <li>
-          <Link href="./appointments">Citas</Link>
+          <Link href="/dashboard/appointments">Citas</Link>
         </li>
         <li>
-          <Link href="./services">Servicios</Link>
+          <Link href="/dashboard/services">Servicios</Link>
         </li>
         <li>
-          <Link href="./staff">Personal</Link>
+          <Link href="/dashboard/staff">Personal</Link>
         </li>
       </ul>
     </div>

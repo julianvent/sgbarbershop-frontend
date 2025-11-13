@@ -20,3 +20,8 @@ export const updateEmployee = async (id,data) => {
     console.log(data);
       
 };
+
+export const deleteEmployee = async (id) =>{
+    console.log('Eliminando '+ id);
+    
+}
