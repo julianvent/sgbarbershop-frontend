@@ -38,6 +38,7 @@ export default function BundleForm({onSubmit}){
                             {servicesEntries.map((service) => (
                                 <ServiceCheckbox
                                     key={service.id}
+                                    id={'services'}
                                     service={service}
                                 ></ServiceCheckbox>
                             ))}

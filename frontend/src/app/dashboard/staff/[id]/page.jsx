@@ -64,7 +64,7 @@ export default function EmployeeDetail({params}){
                             <div className={show.statusContainer}>
                                 <p className={show.labelText}>Estado</p>
 
-                                {employee && <Status id="state" state={employee.state} />}
+                                {employee && <Status id="state" state={employee.status} />}
 
                             </div>
                         </div>
