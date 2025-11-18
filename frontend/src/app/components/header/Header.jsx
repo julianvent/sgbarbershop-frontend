@@ -3,13 +3,19 @@ import styles from "./Header.module.css";
 import { appointmentsRoute } from "@/app/utils/routes";
 import { account } from "@/app/utils/data";
 
-export default function Header() {
+export default function Header({ onSidebarToggle }) {
   return (
     <header className={styles.header}>
       <div className={styles.headerContainer}>
-        <Link href={appointmentsRoute}>
-          <h1>Sagoz - Barbershop</h1>
-        </Link>
+        <div className={styles.titleContainer}>
+          <button
+            className={styles.sidebarButton}
+            onClick={onSidebarToggle}
+          ></button>
+          <Link href={appointmentsRoute}>
+            <h1>Sagoz - Barbershop</h1>
+          </Link>
+        </div>
         <div className={styles.profileContainer}>
           <span>{account.name}</span>
           <ul className={styles.dropdown}>
