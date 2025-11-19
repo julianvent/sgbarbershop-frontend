@@ -102,9 +102,26 @@
     max-height: 1.7em;
 }
 
-@media (width <=500px) {
+.titleContainer {
+    display: flex;
+    gap: 1em;
+}
+
+@media (width <=800px) {
     .headerContainer h1 {
-        font-size: 1.5rem;
+        font-size: 1.25rem;
         margin-left: 0.4em;
+    }
+
+    .sidebarButton {
+        display: block;
+
+        min-width: 1.5em;
+        background-image: url("/icons/bars-solid-full.svg");
+        background-repeat: no-repeat;
+        background-position: center;
+        border: none;
+        filter: brightness(0) saturate(100%) invert(100%) sepia(96%) saturate(0%) hue-rotate(47deg) brightness(104%) contrast(107%);
+        background-color: transparent;
     }
 }

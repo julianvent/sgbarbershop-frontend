@@ -1,16 +1,16 @@
 import Link from "next/link";
 import styles from "./Sidebar.module.css";
 
-export default function Sidebar() {
+export default function Sidebar({ ref, className }) {
   return (
-    <div className={styles.sidebar}>
+    <div ref={ref} className={`${styles.sidebar} ${className}`}>
       <ul>
         <li>
           <Link href="/dashboard/appointments">
             <div className={styles.iconContainer}>
               <img src="/icons/calendar-check-regular-full.svg" alt="" />
             </div>
-            Citas
+            <span>Citas</span>
           </Link>
         </li>
         <li>
@@ -18,7 +18,7 @@ export default function Sidebar() {
             <div className={styles.iconContainer}>
               <img src="/icons/scissors-solid-full.svg" alt="" />
             </div>
-            Servicios
+            <span>Servicios</span>
           </Link>
         </li>
         <li>
@@ -26,7 +26,7 @@ export default function Sidebar() {
             <div className={styles.iconContainer}>
               <img src="/icons/users-solid-full.svg" alt="" />
             </div>
-            Personal
+            <span>Personal</span>
           </Link>
         </li>
       </ul>
