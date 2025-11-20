@@ -27,16 +27,6 @@ export const appointmentColumns = [
     field: "phone",
     width: 150,
   },
-  {
-    headerName: "Estado",
-    field: "status",
-    width: 130,
-    cellClass: params => {
-      if (params.value === "Confirmada") return "status-confirmed";
-      if (params.value === "Cancelada") return "status-cancelled";
-      return "";
-    },
-  },
 ];
 
 
