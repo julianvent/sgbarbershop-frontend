@@ -21,7 +21,7 @@ export const appointments = [
     phone: "9211231234",
     date: "2025-10-18",
     time: "10:00",
-    status: "Cancelada",
+    status: "cancelled",
     barber_id: "1",
     services: ["1", "2"],
   },
@@ -31,7 +31,7 @@ export const appointments = [
     phone: "9211231234",
     date: "2025-10-18",
     time: "11:00",
-    status: "Confirmada",
+    status: "confirmed",
     barber_id: "2",
     services: ["1", "2"],
   },
@@ -41,9 +41,9 @@ export const appointments = [
     phone: "9211231234",
     date: "2025-10-18",
     time: "11:45",
-    status: "Confirmada",
+    status: "completed",
     barber_id: "3",
-    services: ["1", "2"],
+    services: ["1", "9"],
   },
 ];
 
@@ -161,9 +161,9 @@ export const servicesEntries = [
         Se realiza un corte de precisión, arreglo de barba y diseño de grecas, utilizando productos de alta calidad.
       </p>
 
-      <h3 style="font-size:1.1rem; margin-top:4rem;">Servicios que incluye</h3>
+      <h3 style="font-size:1.1rem; margin-top:4rem; margin-bottom:0.5rem;">Servicios que incluye</h3>
 
-      <table style="border-collapse:collapse; width:100%; font-family:Arial, sans-serif; margin-top:0.5rem;">
+      <table style="border-collapse:collapse; width:100%; font-family:Arial, sans-serif;">
         <tbody>
           <tr>
             <td style="padding:6px 8px; width:120px; font-weight:600;">Barba</td>

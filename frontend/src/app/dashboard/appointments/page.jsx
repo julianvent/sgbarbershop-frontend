@@ -11,6 +11,7 @@ import { defaultColDef, appointmentColumns } from "@/app/utils/columns";
 import { ActionButton } from "@/app/components/action/ActionButton";
 import { getAppointments } from "./api/appointments";
 import { useEffect, useState } from "react";
+import { Status } from "@/app/components/form/status/Status";
 
 export default function Appointments() {
   const [appointmentEntries, setAppointmentEntries] = useState();
@@ -38,6 +39,28 @@ export default function Appointments() {
 
   const fields = [
     ...appointmentColumns,
+    {
+      headerName: "Estado",
+      resizable: false,
+      cellRenderer: (params) => {        
+        const Map = {
+          'pending': {color:'#6B7280'  , text: 'Pendiente' },    
+          'confirmed': {color:'#3B82F6', text: 'Confirmada' },   
+          'completed': {color:'#10B981', text: 'Completada' },
+          'cancelled': {color:'#EF4444', text: 'Cancelada' }, 
+        };
+        
+        return (
+          <span style={{
+            color: Map[params.data.status].color,
+            fontWeight: '600',
+            fontSize: '0.875rem'
+          }}>
+            {Map[params.data.status].text}
+          </span>
+        );
+      }
+    },
     {
       headerName: "",
       field: "id",
