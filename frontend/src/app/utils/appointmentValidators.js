@@ -1,7 +1,7 @@
 export const customerNameValidation = {
   id: "customer_name",
   type: "text",
-  label: "Nombre del cliente",
+  label: "Nombre",
   validation: {
     required: "Requerido",
   },
@@ -10,7 +10,7 @@ export const customerNameValidation = {
 export const phoneValidation = {
   id: "customer_phone",
   type: "text",
-  label: "Número telefónico",
+  label: "Teléfono",
   validation: {
     required: "Requerido",
     pattern: {
@@ -23,7 +23,7 @@ export const phoneValidation = {
 export const dateValidation = {
   id: "appointment_date",
   type: "date",
-  label: "Fecha de la cita",
+  label: "Fecha programada",
   validation: {
     required: "Requerido",
   },

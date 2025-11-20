@@ -10,7 +10,7 @@ export default function TimeSelector({ times, id, validation }) {
 
   return (
     <fieldset {...register(id, validation)} className={styles.timeContainer}>
-      <span className={styles.fieldsTitle}>Hora de la cita</span>
+      <span className={styles.fieldsTitle}>Hora programada</span>
       <div className={styles.times}>
         {times.map((time) => (
           <TimeRadio key={time.id} time={time} id={id}></TimeRadio>

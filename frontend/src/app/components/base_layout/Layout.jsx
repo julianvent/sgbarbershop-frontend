@@ -4,7 +4,7 @@ import Sidebar from "@/app/components/sidebar/Sidebar";
 import styles from "./Layout.module.css";
 import { useRef } from "react";
 
-export default function Layout({ children }) {
+export default function Layout({ children, headerTitle }) {
   const sidebarRef = useRef(null);
 
   function onSidebarToggle() {
@@ -19,7 +19,7 @@ export default function Layout({ children }) {
 
   return (
     <div className={styles.layoutContainer}>
-      <Header onSidebarToggle={onSidebarToggle}></Header>
+      <Header title={headerTitle} onSidebarToggle={onSidebarToggle}></Header>
       <Sidebar
         ref={sidebarRef}
         className={styles.sidebar}

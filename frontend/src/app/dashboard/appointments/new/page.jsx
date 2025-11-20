@@ -6,7 +6,11 @@ import CreateNewLayout from "@/app/components/base_layout/CreateNew/CreateNewLay
 
 export default function NewAppointment() {
   return (
-    <CreateNewLayout title={"Agendar cita"} returnRoute={appointmentsRoute}>
+    <CreateNewLayout
+      headerTitle={"Nueva cita"}
+      mainTitle={"Crear nueva cita"}
+      returnRoute={appointmentsRoute}
+    >
       <AppointmentForm></AppointmentForm>
     </CreateNewLayout>
   );
