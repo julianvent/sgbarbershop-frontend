@@ -3,25 +3,30 @@ import styles from "../Main.module.css";
 import { useRouter } from "next/navigation";
 import Layout from "@/app/components/base_layout/Layout";
 import { servicesEntries } from "@/app/utils/data";
-import { editService, newBundleRoute, newServiceRoute, seeService } from "@/app/utils/routes";
-import { serviceFields,defaultColDef } from "@/app/utils/columns";
+import {
+  editService,
+  newBundleRoute,
+  newServiceRoute,
+  seeService,
+} from "@/app/utils/routes";
+import { serviceFields, defaultColDef } from "@/app/utils/columns";
 import { ActionButton } from "@/app/components/action/ActionButton";
 import { AgGridReact } from "ag-grid-react";
-import { ModuleRegistry, AllCommunityModule } from 'ag-grid-community';
+import { ModuleRegistry, AllCommunityModule } from "ag-grid-community";
 ModuleRegistry.registerModules([AllCommunityModule]);
 
 export default function Services() {
   const router = useRouter();
   const actions = [
     {
-      name: 'see',
-      route: seeService
+      name: "see",
+      route: seeService,
     },
     {
-      name: 'edit',
-      route: editService
-    }
-  ]
+      name: "edit",
+      route: editService,
+    },
+  ];
   const fields = [
     ...serviceFields,
     {
@@ -56,7 +61,11 @@ export default function Services() {
           </div>
         </div>
         <div className={styles.tableContainer}>
-          <AgGridReact defaultColDef={defaultColDef} rowData={servicesEntries} columnDefs={fields}/> 
+          <AgGridReact
+            defaultColDef={defaultColDef}
+            rowData={servicesEntries}
+            columnDefs={fields}
+          />
         </div>
       </div>
     </Layout>

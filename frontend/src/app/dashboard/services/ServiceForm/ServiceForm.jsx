@@ -15,23 +15,23 @@ import { servicesRoute } from "@/app/utils/routes";
 import StatusSelect from "@/app/components/form/input/StatusSelect";
 import { statusValidation } from "@/app/utils/servicesValidators";
 
-export default function ServiceForm({ onSubmit, service}) {
+export default function ServiceForm({ onSubmit, service }) {
   const router = useRouter();
   const [isCreatingBundle, setIsCreatingBundle] = useState(false);
   const methods = useForm({
-    defaultValues: service || {}
+    defaultValues: service || {},
   });
 
   const submit = methods.handleSubmit(async (data) => {
     setIsCreatingBundle(true);
-    if(service){
+    if (service) {
       await onSubmit(data, service.id);
-    }else{
+    } else {
       await onSubmit(data);
     }
   });
 
-    useEffect(() => {
+  useEffect(() => {
     if (service) {
       methods.reset(service);
     }
@@ -45,7 +45,6 @@ export default function ServiceForm({ onSubmit, service}) {
           submit();
         }}
       >
-
         <div className={styles.fieldsContainer}>
           <div className={styles.row}>
             <Input {...nameValidation}></Input>
@@ -55,22 +54,15 @@ export default function ServiceForm({ onSubmit, service}) {
           <div className={styles.row}>
             <Input {...durationValidation}></Input>
             <Input {...typeValidation}></Input>
-            {service&&(<StatusSelect {...statusValidation}/>)}
+            {service && <StatusSelect {...statusValidation} />}
           </div>
 
           <div className={styles.soloRow}>
             <TextArea {...descriptionValidation}></TextArea>
           </div>
-            
+
           <div className={styles.fieldsConta}>
             <div className={styles.buttons}>
-              <button
-                type="button"
-                className={styles.cancelButton}
-                onClick={() => router.push(servicesRoute)}
-              >
-                Cancelar
-              </button>
               <button type="submit">Confirmar</button>
             </div>
           </div>

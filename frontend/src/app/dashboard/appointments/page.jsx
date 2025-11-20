@@ -54,7 +54,7 @@ export default function Appointments() {
   ];
 
   return (
-    <Layout headerTitle="Citas">
+    <Layout>
       <div className={styles.layout}>
         <div className={styles.toolbar}>
           <h1>Citas programadas</h1>
@@ -65,13 +65,11 @@ export default function Appointments() {
             Nueva cita
           </button>
         </div>
-        <div className={styles.tableContainer}>
-          <AgGridReact
-            defaultColDef={defaultColDef}
-            rowData={appointmentEntries}
-            columnDefs={fields}
-          />
-        </div>
+        <AgGridReact
+          defaultColDef={defaultColDef}
+          rowData={appointmentEntries}
+          columnDefs={fields}
+        />
       </div>
     </Layout>
   );

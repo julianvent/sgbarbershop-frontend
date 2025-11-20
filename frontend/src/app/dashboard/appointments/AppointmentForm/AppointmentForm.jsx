@@ -92,15 +92,6 @@ export default function AppointmentForm({ appointment, mode }) {
             </fieldset>
           </div>
           <div className={styles.buttons}>
-            <button
-              className={styles.cancelButton}
-              onClick={(e) => {
-                e.preventDefault();
-                router.push(appointmentsRoute);
-              }}
-            >
-              Cancelar
-            </button>
             <button>Agendar cita</button>
           </div>
         </div>
