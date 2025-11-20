@@ -27,12 +27,15 @@
     display: grid;
     align-items: center;
     margin-inline: auto;
-    max-width: 350px;
     width: 100%;
+    overflow: auto;
 }
 
 .main {
     display: grid;
+    justify-self: center;
+    max-width: 20em;
+    width: 100%;
 }
 
 .main h1 {

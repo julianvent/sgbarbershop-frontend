@@ -7,6 +7,8 @@
 .field>select {
     font-size: 0.9rem;
     min-height: 3em;
+    border-radius: 5px;
+    border-color: rgba(0, 0, 0, 0.1);
 }
 
 .field>label {
@@ -28,12 +30,8 @@
     color: rgb(196, 0, 0);
 }
 
-.field>select {
-    border-radius: 5px;
-    border-color: rgba(0, 0, 0, 0.1);
-}
 
-.field >textArea {
+.field>textArea {
     padding: 0.5em;
     font-size: 0.9rem;
     border-radius: 6px;
