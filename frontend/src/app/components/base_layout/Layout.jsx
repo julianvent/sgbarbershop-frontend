@@ -15,7 +15,7 @@ export default function Layout({ children, headerTitle, mainTitle }) {
   return (
     <div className={styles.layoutContainer}>
       <Header
-        sidebarVisible={isSidebarVisible}
+        isSidebarVisible={isSidebarVisible}
         title={headerTitle}
         onSidebarToggle={onSidebarToggle}
       ></Header>

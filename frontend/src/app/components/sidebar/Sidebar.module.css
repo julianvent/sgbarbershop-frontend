@@ -63,7 +63,7 @@
         margin-top: 3.4em;
     }
 
-    .sidebar[visible="true"] {
+    .sidebar[data-visible="true"] {
         transform: translateX(0%);
     }
 }

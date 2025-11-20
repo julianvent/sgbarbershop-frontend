@@ -4,7 +4,7 @@ import { forwardRef } from "react";
 
 const Sidebar = forwardRef(({ visible }, ref) => {
   return (
-    <div visible={visible} ref={ref} className={styles.sidebar}>
+    <div data-visible={visible} ref={ref} className={styles.sidebar}>
       <ul>
         <li>
           <Link href="/dashboard/appointments">
@@ -35,4 +35,5 @@ const Sidebar = forwardRef(({ visible }, ref) => {
   );
 });
 
+Sidebar.displayName = "Sidebar";
 export default Sidebar;
