@@ -27,12 +27,17 @@
     display: grid;
     align-items: center;
     margin-inline: auto;
-    max-width: 350px;
     width: 100%;
+    overflow: auto;
 }
 
 .main {
     display: grid;
+    justify-self: center;
+    max-height: fit-content;
+    grid-template-rows: auto 1fr auto;
+    max-width: 20em;
+    width: 100%;
 }
 
 .main h1 {
@@ -76,6 +81,6 @@
     }
 
     .formContainer {
-        width: 90%;
+        width: 100%;
     }
 }

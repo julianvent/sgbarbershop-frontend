@@ -1,9 +1,9 @@
 .layout {
     display: grid;
-    grid-template-rows: auto 1fr;
     gap: 1em;
-    margin: 0.5em;
-    padding: 1em 3em;
+    grid-template-rows: auto 1fr;
+    min-height: 100%;
+    padding: 1em 2em;
     background-color: white;
     border-radius: 1em;
 }
@@ -33,8 +33,9 @@
 }
 
 .tableContainer {
-    max-height: fit-content;
+    min-height: 100%;
 }
+
 
 @media (width <=800px) {
     .layout {
@@ -42,7 +43,7 @@
     }
 
     .toolbar h1 {
-        font-size: 1.25rem;
+        font-size: 1rem;
     }
 
     .toolbar button {

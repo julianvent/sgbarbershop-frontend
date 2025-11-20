@@ -1,17 +1,17 @@
 "use client";
-import CreateNewLayout from "@/app/components/base_layout/CreateNew/CreateNewLayout";
 import { servicesRoute } from "@/app/utils/routes";
 import BundleForm from "../../ServiceForm/BundleForm";
 import { createBundle } from "../../api/services";
+import Layout from "@/app/components/base_layout/Layout";
 
 export default function NewService() {
   return (
-    <CreateNewLayout
-      title={"Registrar nuevo paquete"}
+    <Layout
+      headerTitle={"Nuevo paquete"}
+      mainTitle={"Registrar nuevo paquete"}
       returnRoute={servicesRoute}
     >
-        <BundleForm onSubmit={createBundle}></BundleForm>
-
-    </CreateNewLayout>
+      <BundleForm onSubmit={createBundle}></BundleForm>
+    </Layout>
   );
 }

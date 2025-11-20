@@ -27,7 +27,7 @@ import BarberFieldset from "@/app/components/form/barberSelector/BarberSelector"
 import TimeSelector from "@/app/components/form/timeSelector/TimeSelector";
 import ServiceSelector from "@/app/components/form/serviceSelector/ServiceSelector";
 
-export default function AppointmentForm({ appointment }) {
+export default function AppointmentForm({ appointment, mode }) {
   const [selectedBarber, setSelectedBarber] = useState(null);
 
   const router = useRouter();
@@ -63,7 +63,7 @@ export default function AppointmentForm({ appointment }) {
           </div>
 
           <div className={styles.fieldsContainer}>
-            <h2>Asignar barbero</h2>
+            <h2>Selecciona un barbero</h2>
             <BarberFieldset
               barbers={barbers}
               onChange={(e) => setSelectedBarber(e.target.value)}
@@ -77,7 +77,9 @@ export default function AppointmentForm({ appointment }) {
               disabled={!selectedBarber}
               className={styles.appointmentFields}
             >
-              <Select options={status} {...statusValidation}></Select>
+              {mode !== "customer" && (
+                <Select options={status} {...statusValidation}></Select>
+              )}
               <Input {...dateValidation}></Input>
               <TimeSelector
                 {...timeValidation}
@@ -90,15 +92,6 @@ export default function AppointmentForm({ appointment }) {
             </fieldset>
           </div>
           <div className={styles.buttons}>
-            <button
-              className={styles.cancelButton}
-              onClick={(e) => {
-                e.preventDefault();
-                router.push(appointmentsRoute);
-              }}
-            >
-              Cancelar
-            </button>
             <button>Agendar cita</button>
           </div>
         </div>

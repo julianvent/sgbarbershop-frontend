@@ -1,9 +1,10 @@
 import Link from "next/link";
 import styles from "./Sidebar.module.css";
+import { forwardRef } from "react";
 
-export default function Sidebar({ ref, className }) {
+const Sidebar = forwardRef(({ visible }, ref) => {
   return (
-    <div ref={ref} className={`${styles.sidebar} ${className}`}>
+    <div data-visible={visible} ref={ref} className={styles.sidebar}>
       <ul>
         <li>
           <Link href="/dashboard/appointments">
@@ -32,4 +33,7 @@ export default function Sidebar({ ref, className }) {
       </ul>
     </div>
   );
-}
+});
+
+Sidebar.displayName = "Sidebar";
+export default Sidebar;

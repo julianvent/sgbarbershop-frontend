@@ -1,9 +1,11 @@
 import Link from "next/link";
 import styles from "./Header.module.css";
-import { appointmentsRoute } from "@/app/utils/routes";
-import { account } from "@/app/utils/data";
 
-export default function Header({ onSidebarToggle }) {
+export default function Header({
+  isSidebarVisible,
+  onSidebarToggle,
+  title = "Dashboard",
+}) {
   return (
     <header className={styles.header}>
       <div className={styles.headerContainer}>
@@ -11,13 +13,12 @@ export default function Header({ onSidebarToggle }) {
           <button
             className={styles.sidebarButton}
             onClick={onSidebarToggle}
+            aria-label="Toggle sidebar"
+            aria-expanded={isSidebarVisible}
           ></button>
-          <Link href={appointmentsRoute}>
-            <h1>Sagoz - Barbershop</h1>
-          </Link>
+          <h1>{title}</h1>
         </div>
         <div className={styles.profileContainer}>
-          <span>{account.name}</span>
           <ul className={styles.dropdown}>
             <li>
               <figure>
