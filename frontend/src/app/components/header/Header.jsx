@@ -1,7 +1,11 @@
 import Link from "next/link";
 import styles from "./Header.module.css";
 
-export default function Header({ onSidebarToggle, title = "Dashboard" }) {
+export default function Header({
+  isSidebarVisible,
+  onSidebarToggle,
+  title = "Dashboard",
+}) {
   return (
     <header className={styles.header}>
       <div className={styles.headerContainer}>
@@ -9,6 +13,8 @@ export default function Header({ onSidebarToggle, title = "Dashboard" }) {
           <button
             className={styles.sidebarButton}
             onClick={onSidebarToggle}
+            aria-label="Toggle sidebar"
+            aria-expanded={isSidebarVisible}
           ></button>
           <h1>{title}</h1>
         </div>
